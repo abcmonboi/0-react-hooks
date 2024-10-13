@@ -25,7 +25,8 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          // DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "var(--secondary--light)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -52,6 +53,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,6 +76,7 @@ const config = {
       },
     },
   },
+  
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
 
