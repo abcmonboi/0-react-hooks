@@ -14,7 +14,7 @@ export default function Layout({
       {/* Sidebar */}
       <Sidebar />
       {/* Main content */}
-      <main className="ml-80 p-8">
+      <main className="ml-[24rem] p-8">
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-lg p-10 space-y-6 min-h-fit">
           {children}
         </div>

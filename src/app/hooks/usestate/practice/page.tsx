@@ -27,7 +27,7 @@ function RandomGift() {
 
       <button
         onClick={handleRandomGift}
-        className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition"
+        className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-customColors-lightBlue transition"
       >
         Nhận Thưởng
       </button>

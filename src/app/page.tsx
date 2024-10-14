@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <h1 className="text-4xl font-bold text-blue-600 text-center">
+      <h1 className="text-5xl font-bold text-customColors-darkGreen text-center">
         Welcome to React Hooks 2022
       </h1>
       <div className="text-gray-700 dark:text-gray-300 text-2xl space-y-4">
@@ -27,7 +27,7 @@ export default function Home() {
       </div>
 
       <div className="flex justify-center items-center space-x-4">
-        <button className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-md transition-all duration-300">
+        <button className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-customColors-lightBlue shadow-md transition-all duration-300">
           Get Started
         </button>
         <button className="px-6 py-3 rounded-full bg-blue-100 text-blue-500 hover:bg-blue-200 shadow-md transition-all duration-300">
