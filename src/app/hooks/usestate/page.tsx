@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { Dispatch, SetStateAction, useState } from "react";
 /**Case for init state is a caculator funtion */
 const orders = [100, 200, 300];
@@ -95,9 +96,9 @@ function ProductCard({
           <p className="text-gray-600">{count}</p>
 
           <div className="flex justify-between items-center">
-            <span className="text-xl font-semibold text-indigo-500">
-              $99.99
-            </span>
+            <Link href="usestate/practice" className="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
+              Practice
+            </Link>
             <button
               onClick={handleIncrese}
               className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
