@@ -1,38 +1,39 @@
-import Link from "next/link";
-
 export default function Home() {
-  const menu = [
-    { label: "Hooks", url: "/hooks" },
-    { label: "useState", url: "/hooks/usestate" },
-  ];
   return (
-    <main className="">
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">Trang Chủ</h1>
-
-        <ul className="space-y-4 mb-8">
-          {menu.map((item) => {
-            return (
-              <li key={item.label} className="bg-white p-4 rounded-lg shadow-md hover:bg-gray-50">
-                <Link href={item.url}>
-                  <span className="text-blue-500 hover:text-blue-700">
-                    {item.label}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="flex space-x-4">
-          <button className="px-4 py-2 bg-gray-300 rounded-lg shadow hover:bg-gray-400">
-            Trở Lại
-          </button>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600">
-            Tiếp Theo
-          </button>
+    <>
+      <h1 className="text-4xl font-bold text-blue-600 text-center">
+        Welcome to React Hooks 2022
+      </h1>
+      <div className="text-gray-700 dark:text-gray-300 text-2xl space-y-4">
+        <div className="flex items-center space-x-2">
+          <span className="text-blue-500">•</span>
+          <span>Hooks có nghĩa là gắn vào, móc vào</span>
+        </div>
+        <div className="flex items-center space-x-2">
+          <span className="text-blue-500">•</span>
+          <span>
+            Hooks là tên khái niệm - là một hàm được viết sẵn sử dụng cho 1 sự
+            việc, hành động cụ thể nhiều lần ở nhiều nơi
+          </span>
+        </div>{" "}
+        <div className="flex items-center space-x-2">
+          <span className="text-red-500">*</span>
+          <span className="text-red-500">Chỉ dùng cho Function component</span>
+        </div>
+        <div className="flex items-center space-x-2">
+          <span className="text-blue-500">{`=>`}</span>
+          <span>Hãy sử dụng Hooks khi tạo mới dự án React</span>
         </div>
       </div>
-    </main>
+
+      <div className="flex justify-center items-center space-x-4">
+        <button className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-md transition-all duration-300">
+          Get Started
+        </button>
+        <button className="px-6 py-3 rounded-full bg-blue-100 text-blue-500 hover:bg-blue-200 shadow-md transition-all duration-300">
+          Learn More
+        </button>
+      </div>
+    </>
   );
 }
