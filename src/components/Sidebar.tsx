@@ -1,16 +1,16 @@
-
 import Link from "next/link";
 import React, { useState } from "react";
 
 const Sidebar = () => {
   const menu = [
     {
+      id: 1,
       label: "useState",
       url: "/hooks/usestate",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/usestate",
         },
         {
           label: "Practice",
@@ -19,12 +19,13 @@ const Sidebar = () => {
       ],
     },
     {
+      id: 2,
       label: "useEffect",
       url: "/hooks/useeffect",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/usestate",
         },
         {
           label: "Practice",
@@ -33,12 +34,13 @@ const Sidebar = () => {
       ],
     },
     {
+      id: 3,
       label: "Two-way binding",
       url: "/hooks/usestate",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/usestate",
         },
         {
           label: "Practice",
@@ -47,6 +49,7 @@ const Sidebar = () => {
       ],
     },
     {
+      id: 4,
       label: "Mounted/Unmounted",
       url: "/hooks/usestate",
       subItems: [
@@ -61,21 +64,34 @@ const Sidebar = () => {
       ],
     },
   ];
-  const [open, setOpen] = useState(false);
+
+  const [openIndex, setOpenIndex] = useState<number[]>([0]); // Track which item is open
+
+  const toggleSubmenu = (index: number) => {
+    if (openIndex.includes(index)) {
+      // If the same item is clicked again, close it
+      setOpenIndex(() => openIndex.filter((item) => item !== index));
+    } else {
+      // Open the clicked item
+      setOpenIndex((prev) => [...prev, index]);
+    }
+  };
 
   return (
     <aside className="max-w-fit w-[20vw] h-[85vh] fixed top-[85px] left-5 bg-gradient-to-b from-white to-blue-100 p-6 shadow-2xl rounded-3xl border-l-4 border-blue-500 flex flex-col">
-      <h1 className="text-3xl font-bold text-blue-300 mb-4">React Hooks</h1>
+      <h1 className="text-3xl font-bold text-customColors-slate mb-4">
+        React Hooks
+      </h1>
       <ul className="space-y-4">
         {menu.map((item) => {
           return (
             <li key={item.label}>
               <button
-                className="w-full text-left py-3 px-4 flex justify-between items-center rounded-full bg-gradient-to-r from-blue-400 to-customColors-lightBlue text-white hover:bg-gradient-to-l transition-all duration-300 shadow-md"
-                onClick={() => setOpen(!open)}
+                className="w-full text-left py-3 px-4 flex justify-between items-center rounded-full bg-gradient-to-r from-customColors-lightBlue to-customColors-lightBlue text-white hover:bg-gradient-to-l transition-all duration-300 shadow-md"
+                onClick={() => toggleSubmenu(item.id)}
               >
                 <span>{item.label}</span>
-                {open ? (
+                {openIndex.includes(item.id) ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -109,26 +125,27 @@ const Sidebar = () => {
               </button>
               {/* Subitems with animation */}
               <ul
-                className={`transition-all duration-300 overflow-hidden  flex flex-col items-end mr-2 ${
-                  open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                className={`transition-all duration-300 overflow-hidden flex flex-col items-end mr-2 ${
+                  openIndex.includes(item.id)
+                    ? "max-h-40 opacity-100"
+                    : "max-h-0 opacity-0"
                 }`}
               >
-                <li className="w-[90%] mt-2 transition-transform duration-300 transform ease-in-out">
-                  <a
-                    href="#"
-                    className="block py-1 px-4 rounded-full bg-blue-200 text-blue-900 hover:bg-blue-300 transition-all duration-300 shadow-sm"
-                  >
-                    Subitem 1
-                  </a>
-                </li>
-                <li className="w-[90%] mt-2 transition-transform duration-300 transform ease-in-out">
-                  <a
-                    href="#"
-                    className="block py-1 px-4 rounded-full bg-blue-200 text-blue-900 hover:bg-blue-300 transition-all duration-300 shadow-sm"
-                  >
-                    Subitem 2
-                  </a>
-                </li>
+                {item.subItems.map((sub) => {
+                  return (
+                    <li
+                      key={sub.label}
+                      className="w-[90%] mt-2 text-2xl transition-transform duration-300 transform ease-in-out"
+                    >
+                      <Link
+                        href={sub.url}
+                        className="block py-1 px-4 rounded-full bg-blue-400 text-white hover:bg-blue-300 transition-all duration-300 shadow-sm"
+                      >
+                     {sub.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </li>
           );

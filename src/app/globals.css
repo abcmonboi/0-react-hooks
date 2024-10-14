@@ -288,8 +288,7 @@ a {
 }
 
 ::selection {
-  background-color: var(--secondary-rgba);
-  color: var(--t-bright);
+  background-color: powderblue;
   text-shadow: none;
 }
 
@@ -567,11 +566,6 @@ img {
 /* ------------------------------------------------*/
 h1 {
   font: normal 700 3.8rem/1.2 var(--_font-accent);
-  color: var(--t-accent);
-  background: var(--t-accent);
-  background: -webkit-linear-gradient(15deg, var(--t-accent) 0%, var(--t-secondary) 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 @media only screen and (min-width: 768px) {
   h1 {

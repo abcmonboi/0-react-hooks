@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <h1 className="text-5xl font-bold text-customColors-darkGreen text-center">
+      <h1 className="text-5xl font-bold text-customColors-slate text-center">
         Welcome to React Hooks 2022
       </h1>
       <div className="text-gray-700 dark:text-gray-300 text-2xl space-y-4">
