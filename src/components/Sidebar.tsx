@@ -40,26 +40,26 @@ const Sidebar = () => {
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate",
+          url: "/hooks/twowaybinding",
         },
         {
           label: "Practice",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/twowaybinding/practice",
         },
       ],
     },
     {
       id: 4,
       label: "Mounted/Unmounted",
-      url: "/hooks/usestate",
+      url: "/hooks/mounted",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/mounted",
         },
         {
           label: "Practice",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/mounted/practice",
         },
       ],
     },
@@ -141,7 +141,7 @@ const Sidebar = () => {
                         href={sub.url}
                         className="block py-1 px-4 rounded-full bg-blue-400 text-white hover:bg-blue-300 transition-all duration-300 shadow-sm"
                       >
-                     {sub.label}
+                        {sub.label}
                       </Link>
                     </li>
                   );

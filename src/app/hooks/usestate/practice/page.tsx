@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-const gifts = ["CPU core i7", "NVIDIA GTX 1060", "SSD 512GB"];
+const gifts = [
+  "CPU core i7",
+  "NVIDIA GTX 1060",
+  "SSD 512GB",
+  "1 Chỉ vàng",
+  "1 Cây vàng",
+  "Dây chuyền vàng",
+];
 
 const PracticeComponent = () => {
   return (
@@ -78,6 +85,7 @@ function ToDoList() {
   const [toDo, SetToDo] = useState<string>("");
 
   const handleAddToList = (done: string, status: "add" | "remove") => {
+    if (!done) return;
     SetLists((prev) => {
       var newList = [...prev, toDo];
 

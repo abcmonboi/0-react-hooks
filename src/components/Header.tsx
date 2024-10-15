@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Header = () => {
@@ -34,9 +35,12 @@ const Header = () => {
 
       {/* Categories */}
       <nav className="space-x-8 text-gray-700 dark:text-gray-200">
-        <span className="hover:text-blue-500 dark:hover:text-blue-400">
+        <Link
+          href={"/"}
+          className="hover:text-blue-500 dark:hover:text-blue-400"
+        >
           Home
-        </span>
+        </Link>
         <span className="hover:text-blue-500 dark:hover:text-blue-400">
           About
         </span>
