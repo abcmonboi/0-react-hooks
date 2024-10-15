@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full bg-white dark:bg-gray-800 p-6 shadow-md flex justify-between items-center">
+    <header className="w-full fixed top-0 bg-white dark:bg-gray-800 p-6 shadow-md flex justify-between items-center">
       {/* Search Bar */}
       <div className="flex items-center space-x-4">
         <div className="relative">
