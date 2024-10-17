@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="w-full fixed top-0 bg-white dark:bg-gray-800 p-6 shadow-md flex justify-between items-center">
+    <header className="z-10 w-full fixed top-0 bg-white dark:bg-gray-800 p-4 shadow-md flex justify-between items-center">
       {/* Search Bar */}
       <div className="flex items-center space-x-4">
         <div className="relative">
@@ -55,7 +55,7 @@ const Header = () => {
       {/* Toggle Button */}
       <button
         onClick={() => location.reload()}
-        className="px-8 py-3 rounded-full bg-customColors-lightBlue text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
+        className="px-6 py-2 rounded-full bg-customColors-lightBlue text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
       >
         <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-customColors-lightBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
         <span className="relative z-10">Refresh</span>
