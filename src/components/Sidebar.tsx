@@ -65,20 +65,22 @@ const Sidebar = () => {
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number[]>([0]); // Track which item is open
+  const [openIndex, setOpenIndex] = useState<Record<string, boolean>>({}); // Track which item is open
 
-  const toggleSubmenu = (index: number) => {
-    if (openIndex.includes(index)) {
-      // If the same item is clicked again, close it
-      setOpenIndex(() => openIndex.filter((item) => item !== index));
-    } else {
-      // Open the clicked item
-      setOpenIndex((prev) => [...prev, index]);
-    }
+  const toggleSubmenu = (id: number) => {
+    setOpenIndex((prevIndex) => {
+      const newState = { ...prevIndex };
+      if (newState[id]) {
+        delete newState[id];
+      } else {
+        newState[id] = true;
+      }
+      return newState;
+    });
   };
 
   return (
-    <aside className="max-w-fit w-[20vw] h-[85vh] fixed top-[85px] left-5 bg-gradient-to-b from-white to-blue-100 p-6 shadow-2xl rounded-3xl border-l-4 border-blue-500 flex flex-col">
+    <aside className="max-w-fit w-[20vw] h-[85vh] fixed bg-gradient-to-b from-white to-blue-100 p-6 shadow-2xl rounded-3xl border-l-4 border-blue-500 flex flex-col">
       <h1 className="text-3xl font-bold text-customColors-slate mb-4">
         React Hooks
       </h1>
@@ -91,7 +93,7 @@ const Sidebar = () => {
                 onClick={() => toggleSubmenu(item.id)}
               >
                 <span>{item.label}</span>
-                {openIndex.includes(item.id) ? (
+                {openIndex[item.id] ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -126,7 +128,7 @@ const Sidebar = () => {
               {/* Subitems with animation */}
               <ul
                 className={`transition-all duration-300 overflow-hidden flex flex-col items-end mr-2 ${
-                  openIndex.includes(item.id)
+                  openIndex[item.id]
                     ? "max-h-40 opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
@@ -135,7 +137,7 @@ const Sidebar = () => {
                   return (
                     <li
                       key={sub.label}
-                      className="w-[90%] mt-2 text-2xl transition-transform duration-300 transform ease-in-out"
+                      className="w-[90%] mt-2 text-sm transition-transform duration-300 transform ease-in-out"
                     >
                       <Link
                         href={sub.url}
