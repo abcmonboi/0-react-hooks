@@ -8,17 +8,15 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="relative min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen">
       {/* Header */}
       <Header />
+      <div className="mt-[4rem] relative flex p-6">
+        <Sidebar />
+        {/* Main content */}
+        <div className="ml-[15vw] w-full ">{children}</div>
+      </div>
       {/* Sidebar */}
-      <Sidebar />
-      {/* Main content */}
-      <main className="ml-[24rem] p-8  mt-[6.5rem]">
-        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-lg b space-y-6 min-h-fit">
-          {children}
-        </div>
-      </main>
     </div>
   );
 }
