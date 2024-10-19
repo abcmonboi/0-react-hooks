@@ -21,15 +21,15 @@ const Sidebar = () => {
     {
       id: 2,
       label: "useEffect",
-      url: "/hooks/useEffect",
+      url: "/hooks/useeffect",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/useEffect",
+          url: "/hooks/useeffect",
         },
         {
           label: "Practice",
-          url: "/hooks/useEffect/practice",
+          url: "/hooks/useeffect/practice",
         },
       ],
     },

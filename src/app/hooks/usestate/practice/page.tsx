@@ -104,9 +104,8 @@ function ToDoList() {
 
   const HandleList = (task: string, status: "add" | "remove") => {
     if (!task) return;
-    SetLists(() => {
-      const newList = { ...lists };
-
+    SetLists((prev) => {
+      const newList = { ...prev };
       if (newList[task] && status === "remove") {
         delete newList[task];
       } else {
@@ -120,7 +119,7 @@ function ToDoList() {
 
   return (
     <Card className="min-h-[50vh]  flex items-center justify-center bg-gradient-to-r from-customColors-lightBlue via-white to-customColors-teal ">
-      <Card>
+      <Card className="min-h-[20rem]">
         <CardHeader>
           <CardTitle className="text-center">To do list</CardTitle>
         </CardHeader>
