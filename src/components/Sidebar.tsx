@@ -80,7 +80,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="max-w-fit w-[20vw] h-[85vh] fixed bg-gradient-to-b from-white to-blue-100 p-6 shadow-2xl rounded-3xl border-l-4 border-blue-500 flex flex-col">
+    <aside className="max-w-fit w-[20vw] h-[85vh] bg-gradient-to-b from-white to-blue-100 p-6 shadow-2xl rounded-3xl border-l-4 border-blue-500 flex flex-col">
       <h1 className="text-3xl font-bold text-customColors-slate mb-4">
         React Hooks
       </h1>
@@ -137,7 +137,7 @@ const Sidebar = () => {
                   return (
                     <li
                       key={sub.label}
-                      className="w-[90%] mt-2 text-sm transition-transform duration-300 transform ease-in-out"
+                      className="w-[90%] mt-2 text-2xl transition-transform duration-300 transform ease-in-out"
                     >
                       <Link
                         href={sub.url}

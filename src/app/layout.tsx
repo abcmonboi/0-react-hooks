@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Syne } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const syne = Syne({ subsets: ["latin"], display: "swap" });
+const poppins = Poppins({
+  display: "swap",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={syne.className}>
-        <Layout>{children}</Layout>
+      <body className={poppins.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Layout>{children}</Layout>
+        </ThemeProvider>
       </body>
     </html>
   );

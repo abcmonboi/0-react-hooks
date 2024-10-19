@@ -28,7 +28,7 @@ export default function Home({ className, ...props }: CardProps) {
     <Card className={cn("", className)} {...props}>
       <CardHeader>
         <CardTitle className="text-center text-5xl text-customColors-oceanBlue ">{`Một số kiến thức phải nhớ về React 2022`}</CardTitle>
-        <CardDescription className="text-xl">
+        <CardDescription className="text-2xl">
           Website này cung cấp cho bạn một số kiến thức về React. Đặc biệt là
           <b> Hooks</b>
         </CardDescription>
@@ -36,9 +36,9 @@ export default function Home({ className, ...props }: CardProps) {
       <CardContent className="grid gap-4">
         <div className=" flex items-center space-x-4 rounded-md border p-4">
           <div className="flex-1 space-y-1">
-            <p className="text-lg font-medium leading-none">
+            <span className="font-medium leading-none">
               Một vài điều cơ bản có thể bạn đã biết về hooks
-            </p>
+            </span>
             <p className="text-lg text-muted-foreground">
               Hooks là tên khái niệm - là một hàm được viết sẵn sử dụng cho 1 sự
               việc, hành động cụ thể nhiều lần ở nhiều nơi
@@ -59,7 +59,9 @@ export default function Home({ className, ...props }: CardProps) {
                 {item?.required ? `*` : `•`}
               </span>
               <div className="py-3 pl-2">
-                <p className="text-lg font-medium leading-none">{item.title}</p>
+                <span className="text-2xl font-medium leading-none">
+                  {item.title}
+                </span>
               </div>
             </div>
           ))}
