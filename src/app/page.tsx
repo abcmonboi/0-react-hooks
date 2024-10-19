@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -21,11 +20,9 @@ const notifications = [
   },
 ];
 
-type CardProps = React.ComponentProps<typeof Card>;
-
-export default function Home({ className, ...props }: CardProps) {
+export default function Home() {
   return (
-    <Card className={cn("", className)} {...props}>
+    <Card>
       <CardHeader>
         <CardTitle className="text-center text-5xl text-customColors-oceanBlue ">{`Một số kiến thức phải nhớ về React 2022`}</CardTitle>
         <CardDescription className="text-2xl">
@@ -67,7 +64,6 @@ export default function Home({ className, ...props }: CardProps) {
           ))}
         </div>
       </CardContent>
-      <CardFooter></CardFooter>
     </Card>
   );
 }

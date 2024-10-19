@@ -20,7 +20,7 @@ type inforProps = {
 
 const UseStateComponent = () => {
   return (
-    <div className="flex flex-col gap-7">
+    <div className="grid gap-7">
       <CountNumber />
       <CallBackWithUseState />
       <InitStateWithCallBack />
@@ -129,38 +129,43 @@ function InitStateWithCallBack() {
   };
 
   return (
-    <div className="bg-customColors-lightBlue text-3xl text-white rounded-lg px-6">
-      <h1 className="text-center py-6 text-6xl text-">
-        {`Sử dụng hàm callBack làm giá trị khởi tạo cho state (initState)`}
-      </h1>
-      <p className="text-3xl text-white mt-2">
-        Truyền hàm vào initState thì giá trị được gán vào là{" "}
-        <b>giá trị return</b> của hàm.
-      </p>
-      <div className="text-3xl text-white mt-2">
-        Khi hàm được sinh ra để tính giá trị ban đầu cho state thì nên cho vào
-        CallBack để tránh mỗi lần render lại tạo 1 hàm không cần thiết <br />
-        {`const orders = [100, 200, 300];
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          {`Sử dụng hàm callBack làm giá trị khởi tạo cho state (initState)`}
+        </CardTitle>
+
+        <CardDescription>
+          Truyền hàm vào initState thì giá trị được gán vào là{" "}
+          <b>giá trị return</b> của hàm.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div>
+          Khi hàm được sinh ra để tính giá trị ban đầu cho state thì nên cho vào
+          CallBack để tránh mỗi lần render lại tạo 1 hàm không cần thiết <br />
+          {`const orders = [100, 200, 300];
 `}
-        <br />
-        Cách xử lý: <br />
-        <br />
-        <li>{`    const [count, setCount] = useState(() => {
+          <br />
+          Cách xử lý: <br />
+          <br />
+          <li>{`    const [count, setCount] = useState(() => {
       const total = orders.reduce((total, cur) => total + cur);
     });`}</li>
-      </div>
-      <h3 className="py-6">Current number = {count} UI Change</h3>
-      <div className="flex items-center justify-between px-6 py-6">
-        <button
-          onClick={handleIncrese}
-          className="px-8 py-3 rounded-full bg-customColors-darkGreen text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
-        >
-          <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-customColors-lightBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-          <span className="relative z-10">Increse Number</span>
-          <span className="absolute inset-0 w-full h-full bg-white opacity-10 transform scale-0 group-hover:scale-110 transition-transform duration-500 rounded-full"></span>
-        </button>
-      </div>
-    </div>
+        </div>
+        <h3 className="py-6">Current number = {count} UI Change</h3>
+        <div className="flex items-center justify-between px-6 py-6">
+          <button
+            onClick={handleIncrese}
+            className="px-8 py-3 rounded-full bg-customColors-darkGreen text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-customColors-lightBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+            <span className="relative z-10">Increse Number</span>
+            <span className="absolute inset-0 w-full h-full bg-white opacity-10 transform scale-0 group-hover:scale-110 transition-transform duration-500 rounded-full"></span>
+          </button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -182,16 +187,18 @@ function NewValueSetState() {
   };
 
   return (
-    <div className="bg-customColors-lightBlue text-3xl text-white rounded-lg px-6">
-      <h1 className="text-center py-6 text-6xl text-">
-        {`Khi setState thì state được thay thế bằng một state mới hoàn toàn`}
-      </h1>
-      <p className="text-3xl text-white mt-2">
-        State không giữ lại giá trị cũ. Nếu muốn chèn thêm giá trị cũ vào state
-        mới sử dụng toán tử ...spread
-      </p>
-      <div className="pt-20 pb-20 flex items-center justify-center">
-        <div className="group relative w-[50%] h-96 bg-white rounded-2xl shadow-xl transform hover:rotate-6 hover:-translate-y-6 transition duration-500 ease-in-out">
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          {`Khi setState thì state được thay thế bằng một state mới hoàn toàn`}
+        </CardTitle>
+        <CardDescription>
+          State không giữ lại giá trị cũ. Nếu muốn chèn thêm giá trị cũ vào
+          state mới sử dụng toán tử ...spread
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex justify-center">
+        <div className="group mt-20 relative w-[50%] h-96 bg-white rounded-2xl shadow-xl transform hover:rotate-6 hover:-translate-y-6 transition duration-500 ease-in-out">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur-md opacity-75 transform group-hover:scale-105 transition duration-500"></div>
 
           <div className="relative h-full flex flex-col items-center justify-center p-6 ">
@@ -213,8 +220,8 @@ function NewValueSetState() {
 
           <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-tr from-green-400 to-blue-500 rounded-full shadow-2xl transform translate-x-8 translate-y-8 group-hover:scale-110 transition duration-500 ease-in-out"></div>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 

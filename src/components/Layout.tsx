@@ -9,14 +9,11 @@ export default function Layout({
 }>) {
   return (
     <div className="min-h-screen">
-      {/* Header */}
       <Header />
       <div className="mt-[7rem] relative flex p-6">
         <Sidebar />
-        {/* Main content */}
         <div className="ml-[2rem] w-full ">{children}</div>
       </div>
-      {/* Sidebar */}
     </div>
   );
 }

@@ -21,15 +21,15 @@ const Sidebar = () => {
     {
       id: 2,
       label: "useEffect",
-      url: "/hooks/useeffect",
+      url: "/hooks/useEffect",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate",
+          url: "/hooks/useEffect",
         },
         {
           label: "Practice",
-          url: "/hooks/usestate/practice",
+          url: "/hooks/useEffect/practice",
         },
       ],
     },
@@ -125,7 +125,6 @@ const Sidebar = () => {
                   </svg>
                 )}
               </button>
-              {/* Subitems with animation */}
               <ul
                 className={`transition-all duration-300 overflow-hidden flex flex-col items-end mr-2 ${
                   openIndex[item.id]
