@@ -1,12 +1,5 @@
-import { cn } from "@/lib/utils";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const notifications = [
   {
@@ -26,11 +19,9 @@ const notifications = [
   },
 ];
 
-type CardProps = React.ComponentProps<typeof Card>;
-
-const page = ({ className, ...props }: CardProps) => {
+const page = () => {
   return (
-    <Card className={cn("", className)} {...props}>
+    <Card>
       <CardHeader>
         <CardTitle>{`Mounted/UnMounted`}</CardTitle>
       </CardHeader>

@@ -14,6 +14,8 @@ const UseEffectKnowledge = () => {
     <div className="grid gap-4">
       <KnowledgeBasic />
       <UseEffectOnlyCallBack />
+      <UseEffectNoDependency />
+      <UseEffectCallBackWithDeps />
     </div>
   );
 };
@@ -123,16 +125,61 @@ function UseEffectOnlyCallBack() {
     <Card>
       <CardHeader>
         <CardTitle>useEffect(callback only) - không có dependencies</CardTitle>
-        <CardDescription>
-          Gọi <code>callback</code> mỗi lần component <code>re-render</code> ?
-          <br />
-          <b className="text-red-500 text-4xl">*</b>
-          <span>
-            Gọi callback sau khi đoạn component thêm vào DOM( nghĩa là code phần
-            return UI được thêm vào DOM)
-          </span>
-        </CardDescription>
       </CardHeader>
+      <CardContent>
+        Gọi <code>callback</code> mỗi lần component <code>re-render</code>.
+        (State thay đổi)
+        <br />
+        <b className="text-red-500 text-4xl">*</b>
+        <span>
+          Gọi callback sau khi đoạn component thêm vào DOM( nghĩa là code phần
+          return UI được thêm vào DOM)
+        </span>
+      </CardContent>
+    </Card>
+  );
+}
+
+function UseEffectNoDependency() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>useEffect(callback,[dependency rỗng])</CardTitle>
+      </CardHeader>
+      <CardContent>
+        Gọi <code>callback </code>duy nhất 1 lần component{" "}
+        <code>được mount(hay thêm vào dom hay render)</code>
+        <br />
+        <li>Dùng khi muốn thực hiện logic duy nhất 1 lần render</li>
+        <li>Không muốn gọi lại khi component render</li>
+      </CardContent>
+    </Card>
+  );
+}
+
+function UseEffectCallBackWithDeps() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>useEffect(callback,[dependencies]) - dependencies</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <li>
+          Denpendencies là 1 hay nhiều biến:(props,state,...) đơn giản là 1 biến
+          chứa dữ liệu có thể thay đổi
+        </li>
+        <li>
+          Dùng khi muốn thực hiện logic lần đầu và mỗi khi dependencies thay đổi{" "}
+        </li>
+        <li>
+          Nó sẽ so sánh toán tử (===) Nếu dependencies thay đổi khi so sánh thì
+          chạy callback{" "}
+        </li>
+        <li>
+          Các state khác thay đổi không thuộc dependencies thì callback cũng
+          không gọi
+        </li>
+      </CardContent>
     </Card>
   );
 }
