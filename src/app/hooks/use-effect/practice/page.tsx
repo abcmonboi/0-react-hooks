@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import React, { useEffect, useState } from "react";
 
 const PracticeUseEffect = () => {
@@ -21,9 +22,10 @@ const PracticeUseEffect = () => {
         className="text-center text-3xl py-10"
         size={"lg"}
       >
-        Toggle Timer Countdown
+        Toggle Timer Countdown 5.
       </Button>
       {isOpen && <UseEffectWithTimerFunctions />}
+      <UEWithCleanFuncPreviewAvatar />
     </div>
   );
 };
@@ -116,19 +118,11 @@ function UseEffectWithTimerFunctions() {
   const [countdown, setCountDown] = useState(180);
 
   useEffect(() => {
-    const timerId = setInterval(() => {
-      setCountDown((prev) => {
-        return prev - 1;
-      });
+    const id = setInterval(() => {
+      setCountDown((prev) => prev - 1);
     }, 1000);
-    return () => clearInterval(timerId);
+    return () => clearInterval(id);
   }, []);
-
-  // setTimeout(() => {
-  //   setCountDown((prev) => {
-  //     return prev - 1;
-  //   });
-  // }, 1000);
 
   return (
     <Card className="translate-y-4 slide-in-from-top-2/3  ease-in-out transform-gpu transition-all">
@@ -150,11 +144,37 @@ function UseEffectWithTimerFunctions() {
           (state đã set lại) --- Khi render UI xong thì state đã bị set lại ----
           Re-render --- chạy lại logic set state liên tục
           <br />
-          --Khi dùng useEffect với các functions hàm đóng(closure). Hàm chỉ tạo
-          1 lần thì không nên sử dụng các biến ngoài phạm vi. ví dụ:
-          setState(state +1) ===vvv setState(prev prev+1)
+          --Khi dùng useEffect với các functions hàm đóng(closure -
+          setInterval). Hàm chỉ tạo 1 lần khi component mount(và các biến xử lý
+          chỉ trong phạm vi hàm) thì không nên sử dụng các biến ngoài phạm vi.
+          ví dụ: setState(state +1) ===vvv setState(prev prev+1) - sử dụng
+          callback của hàm
         </CardDescription>
-
+        <CardContent>
+          <li>
+            SetTimeOut: chạy logic callback 1 lần sau khi đếm.Vì vậy khi
+            setState dù component re-render nhưng code trong callback Timeout
+            cũng sẽ không chạy lại nữa.
+          </li>
+          <li>
+            SetInterval: chạy logic callback mỗi lần sau khi đếm. Vì vậy state
+            sẽ được set lại mỗi khi callback gọi và component re-render mỗi lần
+            như vậy. Tuy nhiên logic trong useEffect sẽ không bị chạy lại vì
+            deps là [] nên chỉ gọi 1 lần khi component mount.
+          </li>
+          <li className="text-red-500">
+            Trường hợp đếm ngược sử dụng setInterval sẽ hợp lý hơn
+          </li>
+          <li className="text-red-500">
+            Xoá timer function khi unmount. Tại vì logic trong interval sẽ vẫn
+            chạy nếu không được xóa
+          </li>
+          <li className="text-red-500">
+            Tóm gọn: Component có thể bị unmount bất kỳ trường hợp nào mà
+            component có sử dụng: setinterval, settimeout, async bất đồng bộ,
+            listener event, subcribe event . Thì khi unmount hãy return và xóa
+          </li>
+        </CardContent>
         <div className="flex gap-5  justify-center items-center ">
           <Button className="size-20 text-center text-3xl mt-20">
             {countdown}
@@ -162,6 +182,103 @@ function UseEffectWithTimerFunctions() {
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+interface Avatar {
+  preview?: string;
+}
+
+interface FileWithPreview extends File {
+  preview: string;
+}
+
+function UEWithCleanFuncPreviewAvatar() {
+  const [count, setCount] = useState(0);
+  const [avatar, setAvatar] = useState<Avatar>({});
+
+  useEffect(() => {
+    if (count === 0) console.log("Component-Mounted");
+    if (count !== 0) console.log("Component-Rerender- mount lần ", count);
+    // Khi re-render component thì phần clean up function này sẽ được chạy trước rồi mới đến ở trên
+    // Nó sẽ dọn dẹp lần mount trước
+    return () => console.log("Component-unmounted - clean lần ", count);
+  }, [count]);
+
+  const handlePreviewAvatar = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    const file = e.target.files[0] as FileWithPreview;
+    file.preview = URL.createObjectURL(file);
+    setAvatar(file);
+  };
+
+  useEffect(() => {
+    return () => {
+      avatar?.preview && URL.revokeObjectURL(avatar.preview);
+    };
+  }, [avatar]);
+
+  return (
+    <>
+      <Card className="translate-y-4 slide-in-from-top-2/3  ease-in-out transform-gpu transition-all">
+        <CardHeader>
+          <CardTitle>6. Cleanup function</CardTitle>
+          <CardDescription>
+            Đó là khi bạn sử dụng useEffect và trong callback return về một hàm.
+            Thì hàm này được gọi là cleanup function hay còn gọi là hàm dọn dẹp
+          </CardDescription>
+          <CardDescription className="text-red-500">
+            Hàm dọn dẹp luôn được gọi trước khi component unmount
+          </CardDescription>
+          <CardDescription className="text-red-500">
+            **Hàm dọn dẹp (clean up function) luôn được gọi trước callback (trừ
+            lần mounted đầu tiên) mỗi khi component re-render - Demo with
+            counting Exercise
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="text-center">
+          <Button
+            onClick={() => setCount((prev) => prev + 1)}
+            className="text-xl h-40 px-4"
+          >
+            {" "}
+            Counting + {count}
+          </Button>
+        </CardContent>
+      </Card>
+      <Card className="translate-y-4 slide-in-from-top-2/3  ease-in-out transform-gpu transition-all">
+        <CardHeader>
+          <CardTitle>6. Cleanup function with preview Avatar</CardTitle>
+          <CardDescription>
+            Demo cho việc cần dọn dẹp component cũ trước khi re-render. Xoá bộ
+            nhớ lưu tạm ảnh cũ sau khi đã xét ảnh mới
+          </CardDescription>
+          <CardDescription className="text-red-500">
+            Xử lý việc Tạo các object URL nhưng khi không sử dụng ở component
+            mới không clear đi
+          </CardDescription>
+          <CardDescription className="text-red-500">
+            **(clean up function) luôn được gọi trước callback (trừ lần mounted
+            đầu tiên) mỗi khi component re-render - Practice with preview Image
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex justify-center">
+          <div className="">
+            <h3>URL BLOB IMAGE: {avatar.preview}</h3>
+            <label htmlFor="fileSelect">Select File</label>
+            <input
+              onChange={(e) => handlePreviewAvatar(e)}
+              type="file"
+              id="fileSelect"
+            ></input>
+            <Avatar>
+              <AvatarImage src={avatar?.preview} alt="@shadcn" />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </div>
+        </CardContent>
+      </Card>
+    </>
   );
 }
 

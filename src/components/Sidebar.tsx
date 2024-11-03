@@ -63,6 +63,36 @@ const Sidebar = () => {
         },
       ],
     },
+    {
+      id: 5,
+      label: "UseLayoutEffect",
+      url: "/hooks/use-layout-effect",
+      subItems: [
+        {
+          label: "Knowledge",
+          url: "/hooks/use-layout-effect",
+        },
+        {
+          label: "Practice",
+          url: "/hooks/use-layout-effect/practice",
+        },
+      ],
+    },
+    {
+      id: 6,
+      label: "UseRef",
+      url: "/hooks/use-ref",
+      subItems: [
+        {
+          label: "Knowledge",
+          url: "/hooks/use-ref",
+        },
+        {
+          label: "Practice",
+          url: "/hooks/use-ref/practice",
+        },
+      ],
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<Record<string, boolean>>({}); // Track which item is open
