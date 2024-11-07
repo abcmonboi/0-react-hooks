@@ -8,10 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React, { useCallback, useState } from "react";
-import ComponentRerender from "./components/ComponentRerender";
-import ComponentUsing from "./components/ComponentUsing";
+import ComponentRerender from "@/app/hooks/use-callback/practice/components/ComponentReRender";
+import ComponentUsing from "@/app/hooks/use-callback/practice/components/ComponentUsing";
 
-const PageUseCallBack = () => {
+const UseCallBackPractice = () => {
   const [count, setCount] = useState<Number>(0);
   const [count2, setCount2] = useState<Number>(0);
 
@@ -52,37 +52,4 @@ const PageUseCallBack = () => {
   );
 };
 
-export default PageUseCallBack;
-
-
-import { Button } from "@/components/ui/button";
-import React from "react";
-
-const ComponentRerender = ({ onIncrese }: { onIncrese: () => void }) => {
-  console.log("Re-Render unuse callback");
-  return (
-    <div className="flex flex-col items-center justify-center">
-      Re-render
-      <Button onClick={onIncrese}>Increase</Button>
-    </div>
-  );
-};
-
-export default React.memo(ComponentRerender);
-
-
-
-import { Button } from "@/components/ui/button";
-import React from "react";
-
-const ComponentUsing = ({ onIncrese }: { onIncrese: () => void }) => {
-  console.log("Un-Rerender with useCallback");
-  return (
-    <div className="flex flex-col items-center justify-center">
-      Un-Render with prop only func from main component
-      <Button onClick={onIncrese}>Increase</Button>
-    </div>
-  );
-};
-
-export default React.memo(ComponentUsing);
+export default UseCallBackPractice;

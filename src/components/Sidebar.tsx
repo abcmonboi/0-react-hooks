@@ -93,6 +93,36 @@ const Sidebar = () => {
         },
       ],
     },
+    {
+      id: 7,
+      label: "useCallBack()",
+      url: "/hooks/use-callback",
+      subItems: [
+        {
+          label: "Knowledge",
+          url: "/hooks/use-callback",
+        },
+        {
+          label: "Practice",
+          url: "/hooks/use-callback/practice",
+        },
+      ],
+    },
+    {
+      id: 8,
+      label: "useMemo()",
+      url: "/hooks/use-memo",
+      subItems: [
+        {
+          label: "Knowledge",
+          url: "/hooks/use-memo",
+        },
+        {
+          label: "Practice",
+          url: "/hooks/use-memo/practice",
+        },
+      ],
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<Record<string, boolean>>({}); // Track which item is open

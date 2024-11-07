@@ -14,9 +14,9 @@ const DemoUseRef = () => {
   const [countdown, setCountdown] = useState(80);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const ref = useRef(90);
 
   const handleCountDown = () => {
-    if (timerRef.current) return;
     timerRef.current = setInterval(() => {
       setCountdown((prev) => prev - 1);
     }, 1000);
@@ -25,8 +25,6 @@ const DemoUseRef = () => {
   const handleStop = () => {
     if (!timerRef.current) return;
     clearInterval(timerRef.current);
-    timerRef.current = null;
-    buttonRef.current?.disabled == false;
   };
 
   return (
@@ -45,13 +43,12 @@ const DemoUseRef = () => {
           <div className="mt-4">
             <Button
               ref={buttonRef}
-              //   disabled={!!timerRef.current}
               onClick={handleCountDown}
-              className="mr-8"
+              className="mr-8 hover:scale-105"
             >
               Start
             </Button>
-            <Button disabled={!timerRef.current} onClick={handleStop}>
+            <Button className="hover:scale-105" onClick={handleStop}>
               Stop
             </Button>
           </div>
