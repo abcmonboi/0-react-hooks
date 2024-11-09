@@ -9,22 +9,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React, { useMemo, useRef, useState } from "react";
-
 const UseMemoDemo = () => {
   const [products, setProducts] = useState<{ name: string; price: number }[]>(
     []
   );
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const nameRef = useRef<HTMLInputElement | null>(null);
 
+  const nameRef = useRef<HTMLInputElement | null>(null);
   const handleProduct = () => {
     setProducts((prod) => {
       return [
         ...prod,
         {
           name: name,
-          price: +price,
+          price: isNaN(+price) ? 0 : +price,
         },
       ];
     });
@@ -34,22 +33,18 @@ const UseMemoDemo = () => {
   };
   const sumWithInitial = useMemo(() => {
     return products.reduce((result, currentValue) => {
-      console.log("Ssss");
       return result + currentValue.price;
     }, 0);
   }, [products]);
-
-  // const sumWithInitial = products.reduce((result, currentValue) => {
-  //   console.log("Ssss", result);
-  //   return result + currentValue.price;
-  // }, 0);
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>Demo Using useMemo() hook</CardTitle>
         <CardDescription>
-          Enter product to calc sum price of product
+          Enter product to calc sum price of product(use Array.reduce) <br />
+          Function calc sum price run only product change instead of each time
+          component re-render
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -67,7 +62,7 @@ const UseMemoDemo = () => {
               ))}
           </div>
 
-          <div className="bg-green-500">Total: {sumWithInitial} </div>
+          <div className="bg-green-500">Total: {sumWithInitial} $ </div>
         </div>
         <div className="grid gap-4">
           <div className="grid grid-flow-row gap-4 ">

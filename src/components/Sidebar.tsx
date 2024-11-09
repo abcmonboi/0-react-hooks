@@ -149,7 +149,7 @@ const Sidebar = () => {
           return (
             <li key={item.label}>
               <button
-                className="w-full text-left py-3 px-4 flex justify-between items-center rounded-full bg-gradient-to-r from-customColors-lightBlue to-customColors-lightBlue text-white hover:bg-gradient-to-l transition-all duration-300 shadow-md"
+                className="overflow-hidden text-ellipsis whitespace-nowrap w-full text-left py-3 px-4 flex justify-between items-center rounded-full bg-gradient-to-r from-customColors-lightBlue to-customColors-lightBlue text-white hover:bg-gradient-to-l transition-all duration-300 shadow-md"
                 onClick={() => toggleSubmenu(item.id)}
               >
                 <span>{item.label}</span>

@@ -47,9 +47,12 @@ const Header = () => {
         <span className="hover:text-blue-500 dark:hover:text-blue-400">
           Contact
         </span>
-        <span className="hover:text-blue-500 dark:hover:text-blue-400">
-          Blog
-        </span>
+        <Link
+          href={"/react"}
+          className="hover:text-blue-500 dark:hover:text-blue-400"
+        >
+          React...
+        </Link>
       </nav>
 
       {/* Toggle Button */}

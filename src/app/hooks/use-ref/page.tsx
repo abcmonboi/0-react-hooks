@@ -27,8 +27,11 @@ const page = () => {
             biến tạo ở component sau khi được re-render
           </li>
           <li className="marker:text-red-500">
-            Dùng useRef để giữ giá trị mới mỗi lần compoonent, function tạo lại
-            (re-render) và được tạo bằng const
+            Dùng useRef để giữ giá trị mới mỗi lần component hay function tạo
+            lại (re-render)
+          </li>
+          <li className="marker:text-red-500">
+            Được tạo bằng const thay vì let
           </li>
         </CardContent>
       </Card>
@@ -37,7 +40,8 @@ const page = () => {
         <CardHeader>
           <CardTitle>Cách dùng </CardTitle>
           <CardDescription>
-            Khởi tạo bằng const varName = useRef(initValue)
+            Khởi tạo bằng const varName = useRef(initValue) - chỉ nhận giá trị
+            không callback
           </CardDescription>
         </CardHeader>
         <CardContent>
