@@ -123,6 +123,21 @@ const Sidebar = () => {
         },
       ],
     },
+    {
+      id: 9,
+      label: "useReducer()",
+      url: "/hooks/use-reducer",
+      subItems: [
+        {
+          label: "Knowledge",
+          url: "/hooks/use-reducer",
+        },
+        {
+          label: "Practice",
+          url: "/hooks/use-reducer/practice",
+        },
+      ],
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<Record<string, boolean>>({}); // Track which item is open
