@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode, useState } from "react";
-import { type Lesson } from "../../page";
+import { type Lesson } from "../../lesson";
 import {
   Card,
   CardContent,
