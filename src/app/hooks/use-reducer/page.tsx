@@ -53,7 +53,7 @@ const page = () => {
         </li>
         <li>
           Số lượng state trong 1 component nhiều. Dẫn đến việc xử lý logic phức
-          tập.VD: Khi set lại state thì có thể set lại nhiều state cùng lúc.
+          tạp.VD: Khi set lại state thì có thể set lại nhiều state cùng lúc.
           Hoặc khi cần tính toán logic state1, state2 thay đổi thì mới set lại
           state12
         </li>

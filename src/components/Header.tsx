@@ -41,9 +41,12 @@ const Header = () => {
         >
           Home
         </Link>
-        <span className="hover:text-blue-500 dark:hover:text-blue-400">
-          About
-        </span>
+        <Link
+          href={"/lessons"}
+          className="hover:text-blue-500 dark:hover:text-blue-400"
+        >
+          Lessons
+        </Link>
         <span className="hover:text-blue-500 dark:hover:text-blue-400">
           Contact
         </span>
