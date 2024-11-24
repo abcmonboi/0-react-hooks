@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React from "react";
-import { Knowledge } from "@/app/hooks/type";
+import { Knowledge } from "@/app/[locale]/hooks/type";
 
 const UseEffectKnowledge = () => {
   return (

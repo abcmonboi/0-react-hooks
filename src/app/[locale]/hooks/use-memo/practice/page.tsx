@@ -1,5 +1,5 @@
 import React from "react";
-import UseMemoDemo from "@/app/hooks/use-memo/practice/components/UseMemoDemo";
+import UseMemoDemo from "@/app/[locale]/hooks/use-memo/practice/components/UseMemoDemo";
 
 const page = () => {
   return <UseMemoDemo />;

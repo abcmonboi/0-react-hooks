@@ -8,8 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React, { useCallback, useState } from "react";
-import ComponentRerender from "@/app/hooks/use-callback/practice/components/ComponentReRender";
-import ComponentUsing from "@/app/hooks/use-callback/practice/components/ComponentUsing";
+import ComponentRerender from "@/app/[locale]/hooks/use-callback/practice/components/ComponentReRender";
+import ComponentUsing from "@/app/[locale]/hooks/use-callback/practice/components/ComponentUsing";
 
 const UseCallBackPractice = () => {
   const [count, setCount] = useState<Number>(0);
