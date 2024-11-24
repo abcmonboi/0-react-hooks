@@ -6,135 +6,135 @@ const Sidebar = () => {
     {
       id: 1,
       label: "useState",
-      url: "/hooks/usestate",
+      url: "/vi/hooks/usestate",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/usestate",
+          url: "/vi/hooks/usestate",
         },
         {
           label: "Practice",
-          url: "/hooks/usestate/practice",
+          url: "/vi/hooks/usestate/practice",
         },
       ],
     },
     {
       id: 2,
       label: "useEffect",
-      url: "/hooks/use-effect",
+      url: "/vi/hooks/use-effect",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-effect",
+          url: "/vi/hooks/use-effect",
         },
         {
           label: "Practice",
-          url: "/hooks/use-effect/practice",
+          url: "/vi/hooks/use-effect/practice",
         },
       ],
     },
     {
       id: 3,
       label: "Two-way binding",
-      url: "/hooks/usestate",
+      url: "/vi/hooks/usestate",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/twowaybinding",
+          url: "/vi/hooks/twowaybinding",
         },
         {
           label: "Practice",
-          url: "/hooks/twowaybinding/practice",
+          url: "/vi/hooks/twowaybinding/practice",
         },
       ],
     },
     {
       id: 4,
       label: "Mounted/Unmounted",
-      url: "/hooks/mounted",
+      url: "/vi/hooks/mounted",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/mounted",
+          url: "/vi/hooks/mounted",
         },
         {
           label: "Practice",
-          url: "/hooks/mounted/practice",
+          url: "/vi/hooks/mounted/practice",
         },
       ],
     },
     {
       id: 5,
       label: "UseLayoutEffect",
-      url: "/hooks/use-layout-effect",
+      url: "/vi/hooks/use-layout-effect",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-layout-effect",
+          url: "/vi/hooks/use-layout-effect",
         },
         {
           label: "Practice",
-          url: "/hooks/use-layout-effect/practice",
+          url: "/vi/hooks/use-layout-effect/practice",
         },
       ],
     },
     {
       id: 6,
       label: "UseRef",
-      url: "/hooks/use-ref",
+      url: "/vi/hooks/use-ref",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-ref",
+          url: "/vi/hooks/use-ref",
         },
         {
           label: "Practice",
-          url: "/hooks/use-ref/practice",
+          url: "/vi/hooks/use-ref/practice",
         },
       ],
     },
     {
       id: 7,
       label: "useCallBack()",
-      url: "/hooks/use-callback",
+      url: "/vi/hooks/use-callback",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-callback",
+          url: "/vi/hooks/use-callback",
         },
         {
           label: "Practice",
-          url: "/hooks/use-callback/practice",
+          url: "/vi/hooks/use-callback/practice",
         },
       ],
     },
     {
       id: 8,
       label: "useMemo()",
-      url: "/hooks/use-memo",
+      url: "/vi/hooks/use-memo",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-memo",
+          url: "/vi/hooks/use-memo",
         },
         {
           label: "Practice",
-          url: "/hooks/use-memo/practice",
+          url: "/vi/hooks/use-memo/practice",
         },
       ],
     },
     {
       id: 9,
       label: "useReducer()",
-      url: "/hooks/use-reducer",
+      url: "/vi/hooks/use-reducer",
       subItems: [
         {
           label: "Knowledge",
-          url: "/hooks/use-reducer",
+          url: "/vi/hooks/use-reducer",
         },
         {
           label: "Practice",
-          url: "/hooks/use-reducer/practice",
+          url: "/vi/hooks/use-reducer/practice",
         },
       ],
     },

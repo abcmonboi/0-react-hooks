@@ -1,12 +1,15 @@
 "use client";
 
 import { Header, Sidebar } from "@/components";
+import { useSelectedLayoutSegments } from "next/navigation";
 
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get current route segments
+  const segments = useSelectedLayoutSegments();
   return (
     <div className="min-h-screen">
       <Header />

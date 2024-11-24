@@ -36,22 +36,26 @@ const Header = () => {
       {/* Categories */}
       <nav className="space-x-8 text-gray-700 dark:text-gray-200">
         <Link
-          href={"/"}
+          href={"/vi/"}
           className="hover:text-blue-500 dark:hover:text-blue-400"
         >
           Home
         </Link>
         <Link
-          href={"/lessons"}
+          href={"/vi/lessons"}
           className="hover:text-blue-500 dark:hover:text-blue-400"
         >
           Lessons
         </Link>
-        <span className="hover:text-blue-500 dark:hover:text-blue-400">
-          Contact
-        </span>
         <Link
-          href={"/react"}
+          href={"/vi/testing"}
+          className="hover:text-blue-500 dark:hover:text-blue-400"
+        >
+          Testing...
+        </Link>
+
+        <Link
+          href={"/vi/react"}
           className="hover:text-blue-500 dark:hover:text-blue-400"
         >
           React...

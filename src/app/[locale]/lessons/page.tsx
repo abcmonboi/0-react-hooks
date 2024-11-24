@@ -17,7 +17,7 @@ const page = () => {
       </CardHeader>
       <CardContent className="grid gap-4">
         {LESSONS.map((item) => (
-          <Link key={item.id} href={`/lessons/0${item.id}`}>
+          <Link key={item.id} href={`/vi/lessons/0${item.id}`}>
             <li className="hover:text-customColors-oceanBlue marker:text-red-500 italic ">
               <span>Lesson 0{item.id}: </span>
               <span className="font-semibold"> {item.label}</span>

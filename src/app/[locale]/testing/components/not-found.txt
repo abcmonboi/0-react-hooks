@@ -1,0 +1,50 @@
+Chỉ dùng được nếu đang sử dụng i18n (Internationaliztion).
+
+Next js render ra trang not-found gần nhất khi mà 1 route gọi hàm notFound.
+
+Chúng ta có thể sử dụng cơ chế này để cung cấp 1 trang 404 local bằng cách thêm 1 file not-found trong thư mục [locale]
+
+Lưu ý rằng Next sẽ chỉ render trang ở file not-found.js khi mà hàm notFound được gọi từ trong 1 route, Không phải cho tất cả  các tuyến chung mà unknow.
+
+- Bắt tất cả các route chưa biết bằng cách :
+địh nghĩa 1 route động bắt tất cả các route cofn lại chưa được định nghĩa
+
+- Bắt các yêu cầu non-localized (không có ngôn ngữ đi kèm vi-en):
+Khi người dùng truy cập 1 route mà không match với middleware ngôn ngữ thì không có ngôn ngữ nào được liên kết với yêu cầu.
+Thì để file not-found ở mục app root để bắt hay kiểm soát cho  case này 
+Lưu ý rằng file not-found.tsx ở root thì yêu cầu cần có layout thậm chí ngây cả khi nó chỉ truyền child
+
+'use client';
+ 
+import Error from 'next/error';
+ 
+export default function NotFound() {
+  return (
+    <html lang="en">
+      <body>
+        <Error statusCode={404} />
+      </body>
+    </html>
+  );
+}
+
+// Since we have a root `not-found.tsx` page, a layout file
+// is required, even if it's just passing children through.
+export default function RootLayout({children}) {
+  return children;
+}
+
+- Với việc render ra trang 404, chúng ta cần gọi hàm notFound trong cấp root layout khi phát hiện ra locale truyền vào là 1 param không chính xác
+
+import {notFound} from 'next/navigation';
+ 
+export default function LocaleLayout({children, params: {locale}}) {
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+ 
+  // ...
+}
+
+---- Với file error.js

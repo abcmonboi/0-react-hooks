@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
+import "./../globals.css";
 import Layout from "@/components/Layout";
 import { ThemeProvider } from "@/components/theme-provider";
+import { useSelectedLayoutSegments } from "next/navigation";
 
 const poppins = Poppins({
   display: "swap",
@@ -20,6 +21,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get current route segments
+  // const segments = useSelectedLayoutSegments();
+
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body className={poppins.className}>

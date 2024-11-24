@@ -1,8 +1,8 @@
-import { redirect } from "next/navigation";
 import React from "react";
+import Testing from "./components/Testing";
 
 const page = () => {
-  redirect("vi");
+  return <Testing />;
 };
 
 export default page;
