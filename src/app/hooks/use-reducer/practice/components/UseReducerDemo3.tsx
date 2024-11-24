@@ -80,19 +80,19 @@ const reducer = (
         ),
       };
       break;
-    case "edit_task":
-      newState = {
-        ...state,
-        tasks: state.tasks.map((item, index) => {
-          let tempArray = [];
-          if (item[index] === action.payload.id) {
-            item[index] === action.payload.value + "asddassd";
-          }
-          tempArray.push(item[index]);
-          return tempArray;
-        }),
-      };
-      break;
+    // case "edit_task":
+    //   newState = {
+    //     ...state,
+    //     tasks: state.tasks.map((item, index) => {
+    //       let tempArray = [];
+    //       if (item[index] === action.payload.id) {
+    //         item[index] === action.payload.value + "asddassd";
+    //       }
+    //       tempArray.push(item[index]);
+    //       return tempArray;
+    //     }),
+    //   };
+    //   break;
 
     default:
       break;
