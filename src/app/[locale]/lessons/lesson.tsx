@@ -506,6 +506,68 @@ useEffect(() => {
       </div>
     ),
   },
+  {
+    id: 9,
+    label: "Kiến thức mở rộng về React - Thêm một số điều cần biết",
+    content: (
+      <div className="grid gap-4">
+        <CardDescription>
+          1. Github, npmjs, unpkg.
+          <br />
+          2. Add React to web.
+          <br />
+          3. Document official.
+        </CardDescription>
+        <li>
+          Npmjs(Node package manager) - Quản lý gói cho node(quản lý thư viện
+          js) - Nơi lưu trữ sản phẩm xây dựng từ source code github
+        </li>
+        <li>Github - Nơi lưu trữ source code</li>
+        <li>
+          Unpkg - Nơi lấy và sử dụng thư viện js bằng cách import 1 url CDN
+          (đồng bộ truy cập với các mấy chủ gần nhất giúp lấy tài nguyên 1 cách
+          nhanh nhất)
+        </li>
+        <li>
+          Sẽ có 2 phiên bản import đó là 1 cho dev và 1 cho product với 1 số
+          tinh chỉnh giúp rút gọn
+        </li>
+        <li>
+          Các API reference trong các thư viện document thực chất là mô tả về
+          method của thư viện đó
+        </li>
+      </div>
+    ),
+  },
+  {
+    id: 10,
+    label: "React.createElement() - Là react chứ không phải DOM",
+    content: (
+      <div className="grid gap-4">
+        <CardDescription>
+          1. React.createElement() =&gt; React element
+          <br />
+          2. So sánh với DOM.createElement() =&gt; DOM element (node)
+          <br />
+          3. Tạo các thẻ html bằng cả 2 =&gt; So sánh
+        </CardDescription>
+        <li>
+          React không có props <code>innerText</code> vì ở giữa các thành phần
+          react có thể là bất cứ thứ gì không chỉ là <code>string</code> . Nó có
+          thể là 1 node khác(string,html tag,...) được gọi chung là children.
+        </li>
+        <li>
+          Cũng giống như DOM thì React cũng tạo ra 1 element dưới dạng 1 object
+        </li>
+        <li>
+          <b>
+            Practice với việc tạo element, element lồng nhau và thêm vào Giao
+            diện
+          </b>
+        </li>
+      </div>
+    ),
+  },
 ];
 
 export const disCount15Percent = (
