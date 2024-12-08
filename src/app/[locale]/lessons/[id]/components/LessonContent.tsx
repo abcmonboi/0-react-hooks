@@ -1,7 +1,7 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
-import { type Lesson } from "../../lesson";
+import React, { useEffect, useLayoutEffect } from "react";
+import * as Lesson from "../../lesson";
 import {
   Card,
   CardContent,
@@ -10,11 +10,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const LessonContent = ({ lesson }: { lesson?: Lesson }) => {
+const LessonContent = ({ lesson }: { lesson?: Lesson.Lesson }) => {
+  const arr = [6900100, 15, 200000] as const;
+  console.log(Lesson.disCount15Percent(...arr));
+  const h1 = document.createElement("h3");
+  useLayoutEffect(() => {
+    h1.innerHTML = "Tạo thẻ h1 bằng dom.createElement()";
+    h1.className = "text-red-500";
+    document.getElementById(`id-${lesson?.id}`)?.append(h1);
+  }, [h1]);
+
   return (
-    <Card>
+    <Card id={`id-${lesson?.id}`}>
       <CardHeader>
-        <CardTitle>{`Lesson${lesson?.id}: ${lesson?.label}`}</CardTitle>
+        <CardTitle>{`Lesson ${lesson?.id}: ${lesson?.label}`}</CardTitle>
         {lesson?.description && (
           <CardDescription> {lesson.description}</CardDescription>
         )}
