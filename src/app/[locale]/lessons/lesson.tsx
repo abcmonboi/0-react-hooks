@@ -541,7 +541,7 @@ useEffect(() => {
   },
   {
     id: 10,
-    label: "React.createElement() - Là react chứ không phải DOM",
+    label: "React.createElement() - Là React chứ không phải DOM",
     content: (
       <div className="grid gap-4">
         <CardDescription>
@@ -565,8 +565,83 @@ useEffect(() => {
             diện
           </b>
         </li>
+        <code>
+          <b> Create Single HTML tag from DOM.createElement() </b> <br />
+          const h1 = document.createElement(&quot;h1&quot;); <br />
+          h1.innerText = &quot;Its Dom Element&quot;; <br /> h1.className =
+          &quot;text-red-500&quot;; <br /> <br />
+          <b> Display to User interface: </b> <br />
+          document.getElementById(&quot;id&quot;)?.append(h1); <br />
+          <br />
+          <b> Create Single HTML tag from React.createElement(): </b> <br />
+          const h3ReactNode = React.createElement( <br /> &quot;h3&quot;, <br />{" "}
+          &quot;className&quot;: &quot;text-blue-500&quot;, <br /> &quot;Hello
+          React Node&quot; );
+          <br /> <br />
+          <b> Display to User interface(need ReactDOM knowledge): </b> <br />
+          <br />
+          <br />
+          <b> Create Multiple HTML tag from DOM.createElement(): </b> <br />
+          const ulDom = document.createElement(&quot;ul&quot;);
+          <br />
+          ulDom.className = &quot;list-disc ml-[2rem]&quot;;
+          <br />
+          const liDom1 = document.createElement(&quot;li&quot;);
+          <br />
+          liDom1.innerText = &quot;Dom Li 1 Hello&quot;;
+          <br />
+          liDom1.className = &quot;marker:text-blue-500&quot;;
+          <br />
+          const liDom2 = document.createElement(&quot;li&quot;);
+          <br />
+          liDom2.innerText = &quot;Dom Li 2 World&quot;;
+          <br />
+          liDom2.className = &quot;marker:text-green-500&quot;;
+          <br />
+          ulDom.append(liDom1, liDom2);
+          <br />
+          document.getElementById(`content-$lesson?.id`)?.appendChild(ulDom);
+          <br />
+          <br />
+          <b> Create Multiple HTML tag fromR React.createElement(): </b> <br />
+          const ulReactDom = React.createElement( &quot;ul&quot;,
+          <br />
+          className: &quot;list-disc ml-[2rem]&quot;,
+          <br />
+          <br />
+          React.createElement(
+          <br />
+          &quot;li&quot;,
+          <br />
+          <br />
+          className: &quot;marker:text-blue-500&quot;,
+          <br />
+          <br />
+          &quot;ReactDom Li 1 Hello&quot;
+          <br />
+          ),
+          <br />
+          React.createElement(
+          <br />
+          &quot;li&quot;,
+          <br />
+          <br />
+          className: &quot;marker:text-green-500&quot;,
+          <br />
+          <br />
+          &quot;ReactDom Li 1 World&quot;
+          <br />
+          )<br />
+          );
+          <br />
+        </code>
       </div>
     ),
+  },
+  {
+    id: 11,
+    label: "ReactDOM - Là ReactDOM chứ không phải DOM",
+    content: <></>,
   },
 ];
 

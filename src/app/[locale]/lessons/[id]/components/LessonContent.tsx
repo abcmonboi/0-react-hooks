@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect } from "react";
+import React from "react";
 import * as Lesson from "../../lesson";
 import {
   Card,
@@ -19,7 +19,9 @@ const LessonContent = ({ lesson }: { lesson?: Lesson.Lesson }) => {
           <CardDescription> {lesson.description}</CardDescription>
         )}
       </CardHeader>
-      <CardContent className="grid gap-4">{lesson?.content}</CardContent>
+      <CardContent id={`content-${lesson?.id}`} className="grid gap-4">
+        {lesson?.content}
+      </CardContent>
     </Card>
   );
 };
