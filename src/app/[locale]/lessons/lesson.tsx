@@ -641,7 +641,79 @@ useEffect(() => {
   {
     id: 11,
     label: "ReactDOM - Là ReactDOM chứ không phải DOM",
-    content: <></>,
+    content: (
+      <div className="grid gap-4">
+        <CardDescription>
+          1. ReactDOM.createRoot(get Dom Element) =&gt; React Root Container
+          <br />
+          2. root.render(React element)
+          <br />
+          3. Tạo các thẻ html bằng React.createElement() và render ra giao diện
+          window
+        </CardDescription>
+        <li>
+          Render React Element đã tạo ở bài trước ra trình duyệt( Cần thêm thư
+          viện React Dom, và nhớ React Dom phải được thêm sau thư viện React)
+        </li>
+        <li>
+          React-DOM là 1 thư viện cầu nối giữa React (thư viên) và DOM (trình
+          duyệt) để giúp việc tinh gọn và phát triển thêm React-Native
+        </li>
+        <li>
+          <b>
+            Practice với việc thêm vào Giao diện React-DOM DOM ảo(Không phải DOM
+            trình duyệt){" "}
+          </b>
+        </li>
+        <code className="nohighlight">
+          useEffect(() =&gt; &#123;
+          <br />
+          const divReactDom = React.createElement(
+          <br />
+          &quot;div&quot;,
+          <br />
+          &#123;
+          <br />
+          className: &quot;flex flex-col gap-4&quot;,
+          <br />
+          &#125;,
+          <br />
+          React.createElement(&quot;h2&quot;, &#123;&#125;, &quot;Hello this is
+          ReactDom&quot;),
+          <br />
+          React.createElement(
+          <br />
+          &quot;span&quot;,
+          <br />
+          &#123;&#125;,
+          <br />
+          &quot;Some thing about ReactDom hihihi hahaha hehehehe&quot;
+          <br />
+          )<br />
+          );
+          <br />
+          const container = document.getElementById(`content-$lesson?.id`);
+          <br />
+          <br />
+          <b>Check if the container exists</b>
+          <br />
+          if (container) &#123;
+          <br />
+          <b>Create a root using ReactDOM.createRoot</b>
+          <br />
+          const root = ReactDOM.createRoot(container);
+          <br />
+          <b>Render your component</b>
+          <br />
+          root.render(divReactDom);
+          <br />
+          &#125;
+          <br />
+          &#125;, []);
+          <br />
+        </code>
+      </div>
+    ),
   },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
-
-import React from "react";
+import ReactDOM from "react-dom/client";
+import React, { useEffect } from "react";
 import * as Lesson from "../../lesson";
 import {
   Card,
