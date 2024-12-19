@@ -715,6 +715,103 @@ useEffect(() => {
       </div>
     ),
   },
+  {
+    id: 12,
+    label: "JSX là gì? Tại sao cần JSX (Javasript XML)",
+    content: (
+      <div className="grid gap-4">
+        <CardDescription>
+          1. Với cách thông thường (sử dụng Javascript) ta tạo ra React element
+          phải dùng React.createElement() và render ra giao diện với
+          ReactDom.creatRoot() và .render()
+          <br />
+          - Nếu dùng cách này để code giao diện thì sẽ khó vì vậy JSX ra đời
+          giúp việc code giao diện dễ dàng hơn.
+          <br />
+          - JSX giúp ta có thể viết XML HTML trong file Javascript hoặc trong
+          thẻ script.
+          <br />
+          - Tuy nhiên thì JSX sẽ không truyền được vào trong ReactDOM.
+          <br />
+          <br />- Vậy nên ta cần sử dụng thư viện để phân tích cú pháp và chuyển
+          đổi JSX <b>Babel</b> (Trong phần <b>render</b> của
+          <b> ReactDOM. root.render()</b> )
+          <br />
+          2. Với JSX thì ta cần chuyển đổi về code Javascript thuần vì vậy nên
+          ta cần thư viện <b>Babel</b> - là 1 bước trung gian
+          <b> chuyên dùng để phân tích cú pháp và chuyển đổi cú pháp</b>
+          <br />
+          (Thông dụng khi chuyển đổi các cú pháp của Javascript từ ES6 trở thành
+          ES5.) - Nhằm hỗ trợ các trình duyệt chạy Javascript có thể chạy dự án.{" "}
+          <b> (Vì sẽ có 1 số trình duyệt &quot;không hỗ trợ&quot;)</b>
+          <br />
+          <br />
+          3. Với React.createElement thì prop &quot;style&quot; sẽ nhận value là
+          1 object
+        </CardDescription>
+        <div className="grid grid-cols-5">
+          <pre className="col-span-2 overflow-hidden">
+            <h5>JSX (HTML) import React and Babel</h5>
+            {`
+<ul>
+  <li>Javascript</li>
+  <li>React</li>
+</ul>`}
+          </pre>
+
+          <span className="col-span-1 font-bold text-red-600">&lt;=&gt;</span>
+          <pre className="col-span-2">
+            <h5>Javascript thuần với việc import React</h5>
+            {`
+React.createElement(
+"ul",
+{},
+  React.createElement("li", {}, "Javascript")
+  React.createElement("li", {}, "React")
+)
+            `}
+          </pre>
+        </div>
+        <li>
+          Với JSX ta có thể tạo biến và gán giá trị cho nó là 1 đoạn code JSX
+        </li>
+        <div className="grid grid-cols-5">
+          <pre className="col-span-2 overflow-hidden">
+            <h5>JSX (HTML) import React and Babel</h5>
+            {`
+const ulJsx = 
+<ul>
+  <li>Javascript</li>
+  <li>React</li>
+</ul>`}
+          </pre>
+
+          <span className="col-span-1 font-bold text-red-600">&lt;=&gt;</span>
+          <pre className="col-span-2">
+            <h5>Javascript thuần với việc import React</h5>
+            {`
+var ulJsx = 
+React.createElement(
+"ul",
+{},
+  React.createElement("li", {}, "Javascript")
+  React.createElement("li", {}, "React")
+)
+            `}
+          </pre>
+        </div>
+        <li>
+          Khi viết JSX muốn viết xen lẫn JS vào thì chúng ta sử dụng &quot;
+          {`{ javascript statement }`}&quot; - Phần statement để chúng ta thường
+          viết giá trị biến, console,map,....
+        </li>
+        <h5>
+          Practice với việc tạo lại các phần tử bằng DOM và ReactDOM(sử dụng cả
+          2 cách createElement và JSX)
+        </h5>
+      </div>
+    ),
+  },
 ];
 
 export const disCount15Percent = (
