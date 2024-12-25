@@ -717,7 +717,7 @@ useEffect(() => {
   },
   {
     id: 12,
-    label: "JSX là gì? Tại sao cần JSX (Javasript XML)",
+    label: "JSX là gì? Tại sao cần JSX (Javascript XML)",
     content: (
       <div className="grid gap-4">
         <CardDescription>
