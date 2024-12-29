@@ -60,6 +60,12 @@ const Header = () => {
         >
           React...
         </Link>
+        <Link
+          href={"/vi/html"}
+          className="hover:text-blue-500 dark:hover:text-blue-400"
+        >
+          Html...
+        </Link>
       </nav>
 
       {/* Toggle Button */}
