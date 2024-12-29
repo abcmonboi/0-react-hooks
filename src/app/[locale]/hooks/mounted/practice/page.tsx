@@ -9,7 +9,13 @@ const MoutedExample = () => {
   const [mounted, setMouted] = useState<boolean>(false);
 
   return (
-    <Card className="min-h-[50vh]">
+    <Card
+      className={`transition-all ease-in-out duration-300 overflow-hidden ${
+        mounted
+          ? "min-h-[60vh] h-[50vh] bg-lime-200 border-4 border-white rounded-full"
+          : "min-h-[12vh] h-[15vh]"
+      }`}
+    >
       <CardHeader>
         <CardTitle>Practice To Understand Mounted/Unmounted</CardTitle>
       </CardHeader>
@@ -27,15 +33,13 @@ const MoutedExample = () => {
   );
 };
 
-function Mounting({ ...props }) {
+function Mounting({ mounted }: { mounted: boolean }) {
   useEffect(() => {
     document.title = "Component Mounted";
     return () => {
       document.title = "Component Unmounted";
     };
   }, []);
-
-  console.log(props);
 
   return (
     <>
@@ -44,9 +48,14 @@ function Mounting({ ...props }) {
         Component just console props mouted:true.Cause when props === false
         component unmounted
       </span>
-      <Avatar className="size-96">
+      <Avatar
+        className={`size-[30rem]
+        }`}
+      >
         <AvatarImage
-          src="https://down-vn.img.susercontent.com/file/sg-11134201-7rdyn-lxl07slku5xi6e.webp"
+          width={1920}
+          height={1080}
+          src="/images/goku.jpg"
           alt="@shadcn"
         />
         <AvatarFallback>CN</AvatarFallback>

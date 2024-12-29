@@ -2,6 +2,7 @@
 
 import Select, {
   type MenuListProps,
+  MenuProps,
   type SingleValueProps,
   components,
 } from "react-select";
@@ -66,6 +67,8 @@ const CustomOption = (props: CustomOptionProps) => {
         {...innerProps}
         className={cn(
           "border-text-neutral-100 flex items-center gap-2 border-b pb-3 pl-2 pr-3 pt-3 hover:bg-primary-50",
+          "transition-all duration-300 ease-in-out",
+          isVisiable[data.value] ? "opacity-100" : "opacity-0",
           {
             //css for option focusing
             "bg-red-200": props.isFocused && data.accessible,
@@ -131,15 +134,6 @@ const CustomOption = (props: CustomOptionProps) => {
   );
 };
 
-// component for custom list container options
-const CustomMenuList = (props: MenuListProps<SelectDirectoryOption>) => {
-  return (
-    <components.MenuList className={"scrollbar mb-3 ml-6 mr-6 mt-3"} {...props}>
-      {props.children}
-    </components.MenuList>
-  );
-};
-
 // component for select single value
 const CustomSingleValue = (props: SingleValueProps<SelectDirectoryOption>) => {
   const { data } = props;
@@ -147,6 +141,19 @@ const CustomSingleValue = (props: SingleValueProps<SelectDirectoryOption>) => {
     <components.SingleValue {...props}>
       {data.address.map((addr) => addr.name).join(" / ")}
     </components.SingleValue>
+  );
+};
+// component for custom menu container
+const CustomMenu = (props: MenuProps<SelectDirectoryOption>) => {
+  return (
+    <components.Menu
+      className={cn(
+        "!py-[12px] !px-[24px] !rounded-[0.25rem] !border-white scroll-bar max-h-[332px]"
+      )}
+      {...props}
+    >
+      {props.children}
+    </components.Menu>
   );
 };
 
@@ -216,68 +223,7 @@ const SelectDirectory = () => {
   const [selectedOptions, setSelectedOptions] = useState<
     SelectDirectoryOption[]
   >([]);
-  // const collapsedOptions = useMemo(
-  //   () => Object.keys(optionIsExpand).filter((key) => !optionIsExpand[key]),
-  //   [optionIsExpand]
-  // );
 
-  /* Khi optionIsExpand thay đổi thì 
-  thực hiện duyệt qua các option có value khác với key của optionIsExpand đang có value = false
-  - Thực hiện duyệt mảng address của option đó, nếu trong mảng address có chứa address.id bằng với key của optionIsExpand đang có value = false
-  - Thực hiện trả về key option với value là false,
-  - Kết quả cuối cùng cũng là 1 object với key của từng option và giá trị là boolean
-  - Hãy chắc rằng đã xử lý rằng option = với key isOpen đang cps value là flase thì trong object isVisiable trả về luôn là true,
-  những option con của nó sẽ là false nếu isOpen[key cha của nó] = false
-  */
-  // const isVisiable = useMemo(() => {
-  //   const result: Record<string, boolean> = Object.fromEntries(
-  //     options.map((item) => [item.value, true])
-  //   );
-  //   if (!selectedOption) return result;
-  //   options.forEach((option) => {
-  //     if (
-  //       // lấy option khác bằng option được chọn
-  //       selectedOption.value !== option.value &&
-  //       //lấy option có depth lớn hơn option được chọn
-  //       option.depth > selectedOption.depth &&
-  //       //lấy option có address chứa option id được chọn
-  //       option.address.map((item) => item.id).includes(selectedOption.value)
-  //     ) {
-  //       console.log(option.value);
-  //       result[option.value] = false;
-  //       if (optionIsExpand[selectedOption.value]) {
-  //         result[option.value] = true;
-  //       }
-  //     }
-  //   });
-
-  //   return result;
-  // }, [options, selectedOption, optionIsExpand]);
-
-  // const isVisiable = useMemo(() => {
-  //   const result: Record<string, boolean> = Object.fromEntries(
-  //     options.map((item) => [item.value, true])
-  //   );
-
-  //   selectedOptions.forEach((selectedOption) => {
-  //     options.forEach((option) => {
-  //       if (
-  //         selectedOption.value !== option.value &&
-  //         option.depth > selectedOption.depth &&
-  //         option.address.map((item) => item.id).includes(selectedOption.value)
-  //       ) {
-  //         result[option.value] = false;
-  //         if (optionIsExpand[selectedOption.value]) {
-  //           result[option.value] = true;
-  //         }
-  //       }
-  //     });
-  //   });
-
-  //   return result;
-  // }, [options, selectedOptions, optionIsExpand]);
-
-  //optimize
   const isVisiable = useMemo(() => {
     const result: Record<string, boolean> = Object.fromEntries(
       options.map((item) => [item.value, true]) // Mặc định tất cả đều hiển thị
@@ -286,15 +232,12 @@ const SelectDirectory = () => {
     selectedOptions.forEach((selectedOption) => {
       options.forEach((option) => {
         if (
-          // Điều kiện để ẩn option
           selectedOption.value !== option.value && // Không phải chính option đang được chọn
           option.depth > selectedOption.depth && // Option có độ sâu lớn hơn option được chọn
           option.address.some((addr) => addr.id === selectedOption.value) // Option thuộc cùng nhánh với option được chọn
         ) {
           // Nếu parent (selectedOption) bị đóng, ẩn các con (option)
-          result[option.value] = optionIsExpand[selectedOption.value]
-            ? true // Parent mở, con hiển thị
-            : false; // Parent đóng, con ẩn
+          result[option.value] = optionIsExpand[selectedOption.value] === true;
         }
       });
     });
@@ -311,11 +254,10 @@ const SelectDirectory = () => {
     },
     [options] // Phụ thuộc vào danh sách `options`
   );
-  console.log(selectedOptions);
+
   return (
     <Select
       onInputChange={() => {
-        //fix khi click ra ngoài bị tự unfocus và chạy hàm dưới
         resetExpandAndVisibility();
       }}
       onKeyDown={(e) => {
@@ -341,9 +283,24 @@ const SelectDirectory = () => {
             setSelectedOptions={setSelectedOptions}
           />
         ),
-        MenuList: CustomMenuList,
         SingleValue: CustomSingleValue,
+        Menu: (props) => <CustomMenu {...props} />,
       }}
+
+      //custom with for menu
+      // maxMenuHeight={332}
+      // styles={{
+      //   menu(base, props) {
+      //     return {
+      //       ...base,
+      //       padding: "12px 24px",
+      //       borderRadius: "4px",
+      //       // minHeight: "20.75rem",
+      //       minHeight: "332px",
+      //       width: "100%",
+      //     };
+      //   },
+      // }}
     />
   );
 };
