@@ -4,6 +4,7 @@ import "./../globals.css";
 import Layout from "@/components/Layout";
 import { ThemeProvider } from "@/components/theme-provider";
 import { useSelectedLayoutSegments } from "next/navigation";
+import { ApolloClientProvider } from "../../main";
 
 const poppins = Poppins({
   display: "swap",
@@ -26,16 +27,18 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={poppins.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Layout>{children}</Layout>
-        </ThemeProvider>
-      </body>
+      <ApolloClientProvider>
+        <body className={poppins.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Layout>{children}</Layout>
+          </ThemeProvider>
+        </body>
+      </ApolloClientProvider>
     </html>
   );
 }

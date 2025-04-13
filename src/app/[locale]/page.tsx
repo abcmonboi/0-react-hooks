@@ -2,10 +2,10 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 
 const notifications = [
   {
@@ -16,6 +16,11 @@ const notifications = [
   },
   {
     title: "Chỉ dùng cho Function component",
+    required: true,
+  },
+  {
+    title: "Playground",
+    href: "vi/play-around/react-select",
     required: true,
   },
 ];
@@ -56,9 +61,18 @@ export default function Home() {
                 {item?.required ? `*` : `•`}
               </span>
               <div className="py-3 pl-2">
-                <span className="text-2xl font-medium leading-none">
-                  {item.title}
-                </span>
+                {item?.href ? (
+                  <Link
+                    href={item.href}
+                    className="text-2xl font-medium leading-none text-blue-500 hover:text-blue-700"
+                  >
+                    {item.title}
+                  </Link>
+                ) : (
+                  <span className="text-2xl font-medium leading-none">
+                    {item.title}
+                  </span>
+                )}
               </div>
             </div>
           ))}
