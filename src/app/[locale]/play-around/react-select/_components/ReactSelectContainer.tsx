@@ -1,118 +1,134 @@
 "use client";
 
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useMemo } from "react";
 
 import Select, {
   components,
   MenuListProps,
   MenuProps,
+  MultiValueProps,
+  OptionProps,
+  PlaceholderProps,
   ValueContainerProps,
 } from "react-select";
-import {
-  ColourOption,
-  colourOptions,
-  FlavourOption,
-  GroupedOption,
-  groupedOptions,
-} from "./docs/data";
+
 import { Checkbox } from "../../../../../components/ui/checkbox";
+import { Category, OptionType, GroupedOption } from "./docs/category";
+import { cn } from "../../../../../lib/utils";
 
-const groupStyles = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-};
-const groupBadgeStyles: CSSProperties = {
-  backgroundColor: "#EBECF0",
-  borderRadius: "2em",
-  color: "#172B4D",
-  display: "inline-block",
-  fontSize: 12,
-  fontWeight: "normal",
-  lineHeight: "1",
-  minWidth: 1,
-  padding: "0.16666666666667em 0.5em",
-  textAlign: "center",
-};
-
-const formatGroupLabel = (data: GroupedOption) => (
-  <div style={groupStyles}>
-    <span>{data.label}</span>
-    <span style={groupBadgeStyles}>{data.options.length}</span>
-  </div>
-);
-
-const CustomMenu = (
-  props: MenuProps<ColourOption | FlavourOption, true, GroupedOption>
-) => {
-  const [isChecked, setChecked] = React.useState(false);
-  return (
-    <components.Menu
-      {...props}
-      className="mt-[5px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.3)] !rounded-[8px] p-[0px_12px_12px_12px]"
-    >
-      <div
-        style={{
-          borderBottom: "0.5px solid #E3E4E4",
-        }}
-        className="flex items-center  bg-white gap-2 h-[44px] px-3"
-        onMouseDown={(e) => e.preventDefault()} // Ngăn blur toàn bộ wrapper
-      >
-        <Checkbox
-          id="all"
-          checked={isChecked}
-          onCheckedChange={(value: boolean) => setChecked(value)}
-        />
-        <span
-          className="text-sm cursor-pointer"
-          onClick={() => {
-            const allOptions = props.options.flatMap((option) =>
-              "options" in option ? option.options : [option]
-            );
-
-            const isAllSelected = props.getValue().length === allOptions.length;
-
-            if (isAllSelected) {
-              props.setValue([], "deselect-all");
-              setChecked(false);
-            } else {
-              props.setValue(allOptions, "select-option");
-              setChecked(true);
-            }
-          }}
-        >
-          Tất cả
-        </span>
-      </div>
-      {props.children}
-    </components.Menu>
+const Menu = (props: MenuProps<OptionType, true, GroupedOption>) => {
+  const allOptions = props.options.flatMap((option) =>
+    "options" in option ? option.options : [option]
   );
-};
+  const isAllSelected = props.getValue().length === allOptions.length;
+  const hasSelected = props.getValue().length > 0;
+  const isIndeterminate = hasSelected && !isAllSelected;
+  const handleCheckboxChange = () => {
+    if (isAllSelected) {
+      props.setValue([], "deselect-option");
+      return;
+    }
+    props.setValue(allOptions, "select-option");
+  };
+  const currentChecked = isIndeterminate ? "indeterminate" : isAllSelected;
 
-const CustomMenuList = (props: any) => {
-  const { children, innerProps } = props;
   return (
-    <div className="h-[250px] overflow-y-auto" style={{ backgroundColor: "" }}>
-      {children}
+    <div className="DaddyMenu">
+      <components.Menu
+        {...props}
+        className="mt-[5px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.3)] !rounded-[8px] p-[0px_12px_12px_12px]"
+      >
+        <div
+          style={{
+            borderBottom: "0.5px solid #E3E4E4",
+          }}
+          className="flex items-center  bg-white gap-2 h-[44px] px-3"
+          onMouseDown={(e) => e.preventDefault()} // Ngăn blur toàn bộ wrapper
+        >
+          <Checkbox checked={currentChecked} onClick={handleCheckboxChange} />
+          <span className="cursor-pointer" onClick={handleCheckboxChange}>
+            Tất cả
+          </span>
+        </div>
+        {props.children}
+      </components.Menu>
     </div>
   );
 };
 
-const CustomOption = (props: any) => {
-  const { children, innerProps, data } = props;
+const Placeholder = (
+  props: PlaceholderProps<OptionType, true, GroupedOption>
+) => {
   return (
-    <div
+    <components.Placeholder
+      {...props}
+      className="text-gray-500 DaddyPlaceholder"
+    ></components.Placeholder>
+  );
+};
+
+const MultiValue = (
+  props: MultiValueProps<OptionType, true, GroupedOption>
+) => {
+  const { children, innerProps } = props;
+  const isLastOpption = props.index === props.selectProps.options.length - 1;
+  const isFirstOption = props.index === 0;
+
+  return (
+    <button
       {...innerProps}
-      className="flex items-center gap-2 p-3 hover:bg-blue-200"
+      className={cn(
+        "flex items-center  py-3 group     hover:bg-red-200",
+        {
+          "pl-[12px] ": isFirstOption,
+        },
+        " transition-all duration-200 ease-in-out"
+      )}
+      onClick={(e) => {
+        if (props.removeProps?.onClick) props.removeProps.onClick(e);
+      }}
     >
       <label
         style={{
           fontSize: "14px",
         }}
-        htmlFor={data.value}
+        htmlFor={props.data.value}
       >
         {children}
       </label>
+      <span
+        className={cn("block mr-2 ", "group-hover:hidden", {
+          hidden: props.index === props.getValue().length - 1,
+        })}
+      >
+        ,
+      </span>
+    </button>
+  );
+};
+
+const Option = (props: OptionProps<OptionType, true, GroupedOption>) => {
+  const { children, innerProps, isSelected } = props;
+  console.log(props);
+  return (
+    <div className="relative p-2">
+      {/* <components.Option {...props}> */}
+      {children}
+      {isSelected && (
+        <span className="absolute right-2 top-1/2 translate-y-[-50%]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-check-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-6z" />
+          </svg>
+        </span>
+      )}
+      {/* </components.Option> */}
     </div>
   );
 };
@@ -141,21 +157,34 @@ const CustomValueContainer = (
 };
 
 export default function ReactSelectContainer() {
+  const options = useMemo(
+    () =>
+      Category.map((item) => ({
+        label: item.title,
+        value: item.id,
+      })),
+    []
+  );
+
   return (
-    <Select<ColourOption | FlavourOption, true, GroupedOption>
-      // menuIsOpen={true}
-      defaultValue={colourOptions[1]}
-      options={groupedOptions}
-      formatGroupLabel={formatGroupLabel}
+    <Select<OptionType, true, GroupedOption>
+      // menuIsOpen
+      placeholder="Chon dich vu...."
+      isClearable
+      options={options}
+      // formatGroupLabel={formatGroupLabel}
       isMulti
       closeMenuOnSelect={false}
       components={{
-        Menu: CustomMenu,
-        // MenuList: CustomMenuList,
-        // Option: CustomOption,
+        Menu,
+        IndicatorSeparator: () => null,
+        Placeholder,
+        MultiValue,
+        // Option,
+        
         // ValueContainer: CustomValueContainer,
       }}
-      blurInputOnSelect={false}
+      // blurInputOnSelect={false}
     />
   );
 }

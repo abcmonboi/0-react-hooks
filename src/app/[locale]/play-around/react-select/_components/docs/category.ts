@@ -41,3 +41,13 @@ export type CategoryType = {
   title: string;
   id: string;
 };
+
+export type OptionType = {
+  value: string;
+  label: string;
+};
+
+export interface GroupedOption {
+  readonly label: string;
+  readonly options: readonly OptionType[];
+}
