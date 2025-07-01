@@ -13,12 +13,24 @@ import Select, {
 } from "react-select";
 
 import { Checkbox } from "../../../../../components/ui/checkbox";
-import { Category, OptionType, GroupedOption } from "./docs/category";
+import {
+  Category,
+  OptionType,
+  GroupedOption as GroupOption,
+} from "./docs/category";
 import { cn } from "../../../../../lib/utils";
+import {
+  ColourOption,
+  FlavourOption,
+  GroupedOption,
+} from "@/app/[locale]/play-around/react-select/_components/docs/data";
+import { Button } from "@/components/ui/button";
 
 const Menu = (props: MenuProps<OptionType, true, GroupedOption>) => {
-  const allOptions = props.options.flatMap((option) =>
-    "options" in option ? option.options : [option]
+  const allOptions: ColourOption[] = props.options.flatMap((option) =>
+    "options" in option
+      ? (option.options as ColourOption[])
+      : [option as ColourOption]
   );
   const isAllSelected = props.getValue().length === allOptions.length;
   const hasSelected = props.getValue().length > 0;
@@ -75,7 +87,7 @@ const MultiValue = (
   const isFirstOption = props.index === 0;
 
   return (
-    <button
+    <div
       {...innerProps}
       className={cn(
         "flex items-center  py-3 group     hover:bg-red-200",
@@ -103,7 +115,7 @@ const MultiValue = (
       >
         ,
       </span>
-    </button>
+    </div>
   );
 };
 
@@ -181,7 +193,7 @@ export default function ReactSelectContainer() {
         Placeholder,
         MultiValue,
         // Option,
-        
+
         // ValueContainer: CustomValueContainer,
       }}
       // blurInputOnSelect={false}

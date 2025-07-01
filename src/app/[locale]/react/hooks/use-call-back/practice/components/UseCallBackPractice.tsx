@@ -1,5 +1,7 @@
 "use client";
 
+import ComponentReRender from "@/app/[locale]/react/hooks/use-call-back/practice/components/ComponentReRender";
+import ComponentUsing from "@/app/[locale]/react/hooks/use-call-back/practice/components/ComponentUsing";
 import {
   Card,
   CardContent,
@@ -8,8 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import React, { useCallback, useState } from "react";
-import ComponentRerender from "@/app/[locale]/hooks/use-callback/practice/components/ComponentReRender";
-import ComponentUsing from "@/app/[locale]/hooks/use-callback/practice/components/ComponentUsing";
 
 const UseCallBackPractice = () => {
   const [count, setCount] = useState<Number>(0);
@@ -33,7 +33,7 @@ const UseCallBackPractice = () => {
         </CardHeader>
         <CardContent>
           Count :{count.toString()}
-          <ComponentRerender onIncrese={handleClickButton} />
+          <ComponentReRender onIncrese={handleClickButton} />
         </CardContent>
       </Card>
       <Card>

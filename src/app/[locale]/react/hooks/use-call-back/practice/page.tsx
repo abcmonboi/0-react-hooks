@@ -1,5 +1,5 @@
+import UseCallBackPractice from "@/app/[locale]/react/hooks/use-call-back/practice/components/UseCallBackPractice";
 import React from "react";
-import UseCallBackPractice from "@/app/[locale]/hooks/use-callback/practice/components/UseCallBackPractice";
 
 const page = () => {
   return <UseCallBackPractice />;
