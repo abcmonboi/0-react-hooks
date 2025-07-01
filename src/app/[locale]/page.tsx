@@ -1,27 +1,21 @@
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import Link from "next/link";
+  BlockquoteTypo,
+  H2Typo,
+  LeadTypo,
+  ListTypo,
+  PTypo,
+} from "@/components/typography";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
-const notifications = [
+const NOTIFICATIONS = [
   {
     title: "Hooks có nghĩa là gán vào, móc vào",
   },
   {
-    title: "Sử dụng Hooks khi tạo mới dự án React",
+    title: "Sử dụng Hooks cho các dự án mới của React từ React 16",
   },
   {
-    title: "Chỉ dùng cho Function component",
-    required: true,
-  },
-  {
-    title: "Playground",
-    href: "vi/play-around/react-select",
-    required: true,
+    title: "Chỉ dùng cho Function component (không phải Class Component)",
   },
 ];
 
@@ -29,54 +23,24 @@ export default function Home() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-center text-5xl text-customColors-oceanBlue ">{`Một số kiến thức phải nhớ về React 2022`}</CardTitle>
-        <CardDescription className="text-2xl">
+        <H2Typo>Một số kiến thức phải nhớ: React 2022</H2Typo>
+        <LeadTypo>
           Website này cung cấp cho bạn một số kiến thức về React. Đặc biệt là
           <b> Hooks</b>
-        </CardDescription>
+        </LeadTypo>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className=" flex items-center space-x-4 rounded-md border p-4">
-          <div className="flex-1 space-y-1">
-            <span className="font-medium leading-none">
-              Một vài điều cơ bản có thể bạn đã biết về hooks
-            </span>
-            <p className="text-lg text-muted-foreground">
-              Hooks là tên khái niệm - là một hàm được viết sẵn sử dụng cho 1 sự
-              việc, hành động cụ thể nhiều lần ở nhiều nơi
-            </p>
-          </div>
-        </div>
-        <div>
-          {notifications.map((item, index) => (
-            <div
-              key={index}
-              className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
-            >
-              <span
-                className={`flex text-4xl h-2 w-2 translate-y-1 rounded-full ${
-                  item?.required ? `text-red-500` : ` text-sky-500 `
-                }`}
-              >
-                {item?.required ? `*` : `•`}
-              </span>
-              <div className="py-3 pl-2">
-                {item?.href ? (
-                  <Link
-                    href={item.href}
-                    className="text-2xl font-medium leading-none text-blue-500 hover:text-blue-700"
-                  >
-                    {item.title}
-                  </Link>
-                ) : (
-                  <span className="text-2xl font-medium leading-none">
-                    {item.title}
-                  </span>
-                )}
-              </div>
-            </div>
+      <CardContent>
+        <PTypo>Một vài điều cơ bản có thể bạn đã biết về hooks</PTypo>
+        <BlockquoteTypo>
+          Hooks là một khái niệm - là một <b>hàm</b> được viết sẵn sử dụng cho
+          một sự việc, hành động cụ thể lặp lại nhiều lần ở nhiều nơi. Thường
+          <b> hàm</b> sẽ chứa logic về quản lý state.
+        </BlockquoteTypo>
+        <ListTypo>
+          {NOTIFICATIONS.map((item, index) => (
+            <li key={index}>{item.title}</li>
           ))}
-        </div>
+        </ListTypo>
       </CardContent>
     </Card>
   );

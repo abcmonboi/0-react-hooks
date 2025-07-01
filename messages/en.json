@@ -1,0 +1,13 @@
+{
+  "Layout": {
+    "language": {
+      "vi": "Vietnamese",
+      "en": "English"
+    }
+  },
+
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  }
+}

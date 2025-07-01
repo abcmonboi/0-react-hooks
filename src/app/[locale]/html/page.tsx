@@ -4,10 +4,9 @@ import TextCss from "./_components/TextCss";
 
 const page = () => {
   return (
-    <div className="grid gap-4">
+    <div className="flex flex-col w-full gap-6">
       <MagicTransisition stateLess />
       <MagicTransisition />
-
       <TextCss />
     </div>
   );

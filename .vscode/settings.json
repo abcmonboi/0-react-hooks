@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.autoClosingTags": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+}

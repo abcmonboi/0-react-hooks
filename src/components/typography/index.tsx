@@ -1,0 +1,12 @@
+export { default as BlockquoteTypo } from "@/components/typography/blockquote";
+export { default as H1Typo } from "@/components/typography/h1";
+export { default as H2Typo } from "@/components/typography/h2";
+export { default as H3Typo } from "@/components/typography/h3";
+export { default as H4Typo } from "@/components/typography/h4";
+export { default as InlineCodeTypo } from "@/components/typography/inlinecode";
+export { default as LargeTypo } from "@/components/typography/large";
+export { default as LeadTypo } from "@/components/typography/lead";
+export { default as ListTypo } from "@/components/typography/list";
+export { default as MutedTypo } from "@/components/typography/muted";
+export { default as PTypo } from "@/components/typography/p";
+export { default as SmallTypo } from "@/components/typography/small";

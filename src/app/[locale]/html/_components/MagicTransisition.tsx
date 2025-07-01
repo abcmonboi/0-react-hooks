@@ -1,18 +1,22 @@
 "use client";
 
+import { H2Typo } from "@/components/typography";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import React from "react";
 
 const MagicTransisition = ({ stateLess = false }: { stateLess?: boolean }) => {
   const [isClicked, setIsClicked] = React.useState(false);
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Magic Transisition - Sự kỳ diệu của transition</CardTitle>
+        <CardTitle>
+          <H2Typo>Magic Transisition - Sự kỳ diệu của transition</H2Typo>
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid gap-4">
+        <div className="flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-4">
             <pre>
               {`div1:hover {
@@ -26,7 +30,7 @@ transition: 0.6s ease-in-out;
 }`}
             </pre>
           </div>
-          <div className="bg-slate-900 p-14 rounded-3xl flex justify-between">
+          <div className="bg-secondary p-6 rounded-3xl flex justify-between">
             <div
               className="size-96 bg-red-400 border border-gray-300 hover:rounded-[50%]
            flex items-center justify-center text-white"

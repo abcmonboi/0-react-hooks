@@ -1,0 +1,13 @@
+{
+  "Layout": {
+    "language": {
+      "vi": "Tiếng Việt",
+      "en": "Tiếng Anh"
+    }
+  },
+
+  "HomePage": {
+    "title": "Xin chào thế giới!",
+    "about": "Đi đến trang giới thiệu"
+  }
+}
