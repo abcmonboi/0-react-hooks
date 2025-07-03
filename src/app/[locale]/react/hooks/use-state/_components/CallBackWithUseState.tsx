@@ -62,6 +62,7 @@ const CallBackWithUseState = () => {
           {`=> Code phía trên sẽ set lại state 3 lần (render 1 time) và count sẽ được +3`}
         </BlockquoteTypo>
         <H4Typo>Current number = {count} UI Change</H4Typo>
+        <br />
         <Button onClick={handleIncrese}>Increse Number</Button>
       </CardContent>
     </Card>

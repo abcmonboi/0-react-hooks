@@ -8,7 +8,7 @@ const P = ({
   return (
     <p
       {...props}
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", props.className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-2", props.className)}
     >
       {children}
     </p>

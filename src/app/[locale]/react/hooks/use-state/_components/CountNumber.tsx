@@ -29,7 +29,6 @@ const CountNumber = () => {
         <LargeTypo>Current number = {count} UI Change</LargeTypo>
         <LargeTypo>{count && `Render: ` + (count + 1)} </LargeTypo>
       </CardContent>
-      <CardFooter className="flex justify-between"></CardFooter>
     </Card>
   );
 };
