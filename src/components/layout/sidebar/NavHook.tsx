@@ -40,10 +40,10 @@ export function NavHook({
         {hooks.map((item) => (
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton isActive={pathname.includes(item.url)} asChild>
-              <a href={item.url} title={item.name}>
+              <Link href={item.url} title={item.name}>
                 <span>{item.emoji}</span>
                 <span>{item.name}</span>
-              </a>
+              </Link>
             </SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

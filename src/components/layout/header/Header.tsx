@@ -1,3 +1,4 @@
+import BreadCrumbPage from "@/components/layout/header/BreadCrumbPage";
 import { NavActions } from "@/components/layout/header/NavActions";
 import {
   Breadcrumb,
@@ -19,9 +20,7 @@ const Header = () => (
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbPage className="line-clamp-1">
-              Learning Step By Step
-            </BreadcrumbPage>
+            <BreadCrumbPage />
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

@@ -44,8 +44,8 @@ export function SidebarRight({
 }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar
-      collapsible="none"
-      className="sticky hidden lg:flex top-0 h-svh border-l"
+      side="right"
+      className="max-lg:sticky hidden lg:flex top-0 h-svh border-l"
       {...props}
     >
       <SidebarHeader className="h-16 border-b border-sidebar-border">
