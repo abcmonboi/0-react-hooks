@@ -7,7 +7,14 @@ const page = ({ params }: { params: { id: string } }) => {
   const lesson = LESSONS.find((item) => {
     return item.id === +id;
   });
-  return <LessonContent lesson={lesson} />;
+  if (!lesson) {
+    return null;
+  }
+  return (
+    <>
+      <LessonContent lesson={lesson} />
+    </>
+  );
 };
 
 export default page;

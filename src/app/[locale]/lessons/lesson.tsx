@@ -1,3 +1,9 @@
+import {
+  H4Typo,
+  InlineCodeTypo,
+  LargeTypo,
+  ListTypo,
+} from "@/components/typography";
 import { CardDescription } from "@/components/ui/card";
 import { ReactNode } from "react";
 
@@ -12,20 +18,22 @@ export const LESSONS: Lesson[] = [
   {
     id: 1,
     label: "ReactJS là gì ?",
+    description: ` Một thư viện được viết bởi Javascript cho việc xây dựng nên giao diện
+          người dùng`,
     content: (
       <>
-        <li>
-          Một thư viện được viết bởi Javascript cho việc xây dựng nên giao diện
-          người dùng
-        </li>
-        <h5>Tại sao nên học React</h5>
-        <li className="marker:text-red-500">Thư viện đông đảo người dùng</li>
-        <li>Thân thiện với SEO(Search Engine Optimization)</li>
-        <li>Dễ mở rộng và tái sử dụng cao với việc kiến trúc chia component</li>
-        <li>
-          Khả năng tương thích ngược (Có thể update lên các version khác mà
-          không sợ mất method)
-        </li>
+        <H4Typo>Tại sao nên học React ?</H4Typo>
+        <ListTypo>
+          <li className="marker:text-red-500">Thư viện đông đảo người dùng</li>
+          <li>Thân thiện với SEO(Search Engine Optimization)</li>
+          <li>
+            Dễ mở rộng và tái sử dụng cao với việc kiến trúc chia component
+          </li>
+          <li>
+            Khả năng tương thích ngược (Có thể update lên các version khác mà
+            không sợ mất method)
+          </li>
+        </ListTypo>
       </>
     ),
   },
@@ -72,29 +80,29 @@ export const LESSONS: Lesson[] = [
     content: (
       <>
         <li>Hàm thông thường:</li>
-        <code>function name(params:type) {}</code>
-        <code>name(args)</code>
+        <InlineCodeTypo>function name(params:type) {}</InlineCodeTypo>
+        <InlineCodeTypo>name(args)</InlineCodeTypo>
         <li className="marker:text-red-500">Sinh ra để viết ngắn gọn hơn</li>
         <li>
           <span>Thay vì</span>
-          <code>
+          <InlineCodeTypo>
             {` function name(params:type) {
             return a+b
           }`}
-          </code>
+          </InlineCodeTypo>
           <span> Ta có thể viết bằng arrow function </span>
-          <code>
+          <InlineCodeTypo>
             {`const name = (params:type) => 
              a+b
           `}
-          </code>
+          </InlineCodeTypo>
         </li>
         <li>Nếu muốn return ra 1 object thì bọc bởi dấu ngoặc đơn ()</li>
         <li>
           Nếu tham số chỉ có 1 thì có thể bỏ dấu ngoặc đơn{" "}
-          <code>{`(param){}`}</code>
+          <InlineCodeTypo>{`(param){}`}</InlineCodeTypo>
           <br />
-          <code>{`= param =>{}`}</code>
+          <InlineCodeTypo>{`= param =>{}`}</InlineCodeTypo>
         </li>
         <li className="marker:text-red-500">
           Arrow function không có this(hay là context) nói chính xác hơn thì
@@ -103,7 +111,7 @@ export const LESSONS: Lesson[] = [
         </li>
         <li className="marker:text-red-500">
           Hàm tạo (Constructor) <br />
-          <code>
+          <InlineCodeTypo>
             {`function User(name:string,age:number) {
                 name = this.name;
                 age = this.age;
@@ -111,7 +119,7 @@ export const LESSONS: Lesson[] = [
                   return this.name
                 }
               }`}
-          </code>
+          </InlineCodeTypo>
         </li>
       </>
     ),
@@ -119,11 +127,9 @@ export const LESSONS: Lesson[] = [
   {
     id: 4,
     label: "Enhanced object literals - Nâng cao thêm về xử lý object",
+    description: "Giúp chúng ta cải thiện việc khai báo và xử lý object",
     content: (
-      <div className="grid gap-4">
-        <CardDescription>
-          Giúp chúng ta cải thiện việc khai báo và xử lý object
-        </CardDescription>
+      <>
         <li className="marker:text-red-600">
           Định nghĩa key:value cho object{" "}
           <pre>
@@ -209,7 +215,7 @@ return arr.reduce(
             <br />
           </pre>
         </li>
-      </div>
+      </>
     ),
   },
   {

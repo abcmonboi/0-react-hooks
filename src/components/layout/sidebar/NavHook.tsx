@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  ArrowUpRight,
-  LinkIcon,
-  MoreHorizontal,
-  StarOff,
-  Trash2,
-} from "lucide-react";
+import { BookOpenTextIcon, MoreHorizontal } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -63,24 +57,12 @@ export function NavHook({
                 side={isMobile ? "bottom" : "right"}
                 align={isMobile ? "end" : "start"}
               >
-                <DropdownMenuItem>
-                  <StarOff className="text-muted-foreground" />
-                  <span>Remove from hooks</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <LinkIcon className="text-muted-foreground" />
-                  <span>Copy Link</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <ArrowUpRight className="text-muted-foreground" />
-                  <span>Open in New Tab</span>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
-                  <span>Delete</span>
-                </DropdownMenuItem>
+                <Link href={`${item.url}/practice`}>
+                  <DropdownMenuItem>
+                    <BookOpenTextIcon className="text-muted-foreground" />
+                    Practice
+                  </DropdownMenuItem>
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
