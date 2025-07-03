@@ -10,6 +10,11 @@ const nextConfig = {
         destination: "/:locale/play-around/react-select",
         permanent: true,
       },
+      {
+        source: "/:locale/react/hooks",
+        destination: "/:locale/react/hooks/use-state",
+        permanent: true,
+      },
     ];
   },
   // Add any other Next.js configuration options here

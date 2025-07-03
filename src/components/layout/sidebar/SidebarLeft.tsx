@@ -18,7 +18,7 @@ import {
   Wrench,
 } from "lucide-react";
 
-import { NavHook } from "@/components/NavHook";
+import { NavHook } from "@/components/layout/sidebar/NavHook";
 import { NavMain } from "@/components/layout/sidebar/NavMain";
 import { NavSecondary } from "@/components/nav-secondary";
 import { NavWorkspaces } from "@/components/nav-workspaces";

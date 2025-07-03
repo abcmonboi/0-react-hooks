@@ -25,12 +25,12 @@ WebkitTextFillColor: "transparent",
               style={{
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                backgroundSize: "900px 400px",
                 backgroundRepeat: "no-repeat",
+                backgroundSize: "50rem 25rem",
               }}
               className={cn(
                 "p-28 rounded-3xl leading-[100%]",
-                "text-[12rem] font-bold text-center text-white",
+                "text-[8rem] font-bold text-center text-white",
                 "bg-[url('/images/goku.jpg')] bg-cover bg-center tracking-[2rem]",
                 "drop-shadow-2xl "
               )}

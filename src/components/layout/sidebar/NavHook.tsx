@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/sidebar";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function NavHook({
   hooks,
@@ -36,6 +37,7 @@ export function NavHook({
   }[];
 }) {
   const { isMobile } = useSidebar();
+  const pathname = usePathname();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -43,7 +45,7 @@ export function NavHook({
       <SidebarMenu>
         {hooks.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton asChild>
+            <SidebarMenuButton isActive={pathname.includes(item.url)} asChild>
               <a href={item.url} title={item.name}>
                 <span>{item.emoji}</span>
                 <span>{item.name}</span>
