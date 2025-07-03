@@ -1,3 +1,4 @@
+import { H2Typo, LeadTypo } from "@/components/typography";
 import {
   Card,
   CardContent,
@@ -12,10 +13,10 @@ const page = () => {
     <div className="grid gap-4">
       <Card>
         <CardHeader>
-          <CardTitle>useRef - Mục đích sử dụng</CardTitle>
-          <CardDescription>
+          <H2Typo>useRef - Mục đích sử dụng</H2Typo>
+          <LeadTypo>
             Lưu giá trị tham chiếu ra bên ngoài 1 function component
-          </CardDescription>
+          </LeadTypo>
         </CardHeader>
         <CardContent>
           <li id="ss" className="marker:text-red-500">
@@ -38,11 +39,11 @@ const page = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Cách dùng </CardTitle>
-          <CardDescription>
+          <H2Typo>Cách dùng </H2Typo>
+          <LeadTypo>
             Khởi tạo bằng const varName = useRef(initValue) - chỉ nhận giá trị
             không callback
-          </CardDescription>
+          </LeadTypo>
         </CardHeader>
         <CardContent>
           <li id="ss" className="marker:text-red-500">
