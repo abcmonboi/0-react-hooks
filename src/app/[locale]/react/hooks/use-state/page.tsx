@@ -6,9 +6,11 @@ import {
   CardHeader,
   CardContent,
   CardDescription,
-  CardFooter,
   CardTitle,
 } from "@/components/ui/card";
+import { H2Typo, LeadTypo, PTypo } from "@/components/typography";
+import CountNumber from "@/app/[locale]/react/hooks/use-state/_components/CountNumber";
+import CallBackWithUseState from "@/app/[locale]/react/hooks/use-state/_components/CallBackWithUseState";
 
 const orders = [100, 200, 300];
 
@@ -20,7 +22,7 @@ type inforProps = {
 
 const UseStateComponent = () => {
   return (
-    <div className="grid gap-7">
+    <div className="grid gap-6">
       <CountNumber />
       <CallBackWithUseState />
       <InitStateWithCallBack />
@@ -28,96 +30,6 @@ const UseStateComponent = () => {
     </div>
   );
 };
-
-function CountNumber() {
-  const [count, setCount] = useState<number>(0);
-
-  const handleIncrese = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>
-          Giao diện tự thay đổi (re-render) khi state thay đổi
-        </CardTitle>
-        <CardDescription>
-          Khi muốn giao diện thay đổi theo dữ liệu mà không cần phải get và set
-          lại Dom element thì sử dụng <b>setState</b>
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <h3 className="py-6 text-customColors-oceanBlue">
-          Current number = {count} UI Change
-        </h3>
-        <div className="flex items-center justify-between px-6 py-6">
-          <button
-            onClick={handleIncrese}
-            className="px-8 py-3 rounded-full bg-customColors-darkGreen text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-customColors-lightBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span className="relative z-10">Increse Number</span>
-            <span className="absolute inset-0 w-full h-full bg-white opacity-10 transform scale-0 group-hover:scale-110 transition-transform duration-500 rounded-full"></span>
-          </button>
-          <h5>{count && `Render: ` + (count + 1)} </h5>
-        </div>
-      </CardContent>
-      <CardFooter className="flex justify-between"></CardFooter>
-    </Card>
-  );
-}
-
-function CallBackWithUseState() {
-  const [count, setCount] = useState<number>(0);
-
-  const handleIncrese = () => {
-    setCount((prev) => prev + 1);
-    setCount((prev) => prev + 1);
-    setCount((prev) => prev + 1);
-  };
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{`callBack với useState () => {}`}</CardTitle>
-        <CardDescription>
-          Mục đích sử dùng là để trả ngay lại giá trị state cho các dòng code
-          phía sau
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="text-3xl  mt-2">
-          Khi setState thì giá trị sẽ không được tăng lên ngay. <br />
-          Ví dụ: <li>setCount(count+1);</li>
-          <li>setCount(count+1);</li>
-          <li>setCount(count+1);</li>
-          {`=> Code phía trên sẽ chỉ set lại state 1 lần (render 1 time) và count sẽ được +1`}
-          <br />
-          <br />
-          Cách xử lý: <br />
-          <br />
-          <li>{`setCount((prev) => prev + 1);`}</li>
-          <li>{`setCount((prev) => prev + 1);`}</li>
-          <li>{`setCount((prev) => prev + 1);`}</li>
-          {`=> Code phía trên sẽ chỉ set lại state 1 lần (render 1 time) và count sẽ được +3`}
-        </div>
-        <h3 className="py-6">Current number = {count} UI Change</h3>
-        <div className="flex items-center justify-between px-6 py-6">
-          <button
-            onClick={handleIncrese}
-            className="px-8 py-3 rounded-full bg-customColors-darkGreen text-white hover:bg-customColors-lightBlue dark:bg-customColors-lightBlue dark:hover:bg-blue-700 transition-all duration-300 shadow-md relative overflow-hidden group transform hover:-rotate-2 active:rotate-2 active:scale-95"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-customColors-lightBlue opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span className="relative z-10">Increse Number</span>
-            <span className="absolute inset-0 w-full h-full bg-white opacity-10 transform scale-0 group-hover:scale-110 transition-transform duration-500 rounded-full"></span>
-          </button>
-        </div>
-      </CardContent>
-      <CardFooter className="flex justify-between"></CardFooter>
-    </Card>
-  );
-}
 
 function InitStateWithCallBack() {
   const [count, setCount] = useState<number>(() => {
@@ -189,13 +101,13 @@ function NewValueSetState() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
+        <H2Typo>
           {`Khi setState thì state được thay thế bằng một state mới hoàn toàn`}
-        </CardTitle>
-        <CardDescription>
+        </H2Typo>
+        <LeadTypo>
           State không giữ lại giá trị cũ. Nếu muốn chèn thêm giá trị cũ vào
           state mới sử dụng toán tử ...spread
-        </CardDescription>
+        </LeadTypo>
       </CardHeader>
       <CardContent className="flex justify-center">
         <div className="group mt-20 relative w-[50%] h-96 bg-white rounded-2xl shadow-xl transform hover:rotate-6 hover:-translate-y-6 transition duration-500 ease-in-out">

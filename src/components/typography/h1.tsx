@@ -1,8 +1,18 @@
+import { cn } from "@/lib/utils";
 import React, { ReactNode } from "react";
 
-const H1 = ({ children }: { children: ReactNode }) => {
+const H1 = ({
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLHeadingElement> & { children: ReactNode }) => {
   return (
-    <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">
+    <h1
+      {...props}
+      className={cn(
+        "scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance",
+        props.className
+      )}
+    >
       {children}
     </h1>
   );

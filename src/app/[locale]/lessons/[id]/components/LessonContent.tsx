@@ -1,12 +1,7 @@
 "use client";
 import React from "react";
 import * as Lesson from "../../lesson";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { H2Typo, LeadTypo } from "@/components/typography";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
