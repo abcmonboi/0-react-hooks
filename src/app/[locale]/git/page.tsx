@@ -13,8 +13,20 @@ const GIT_COMMANDS = [
   {
     command: "git init",
     key: "init",
-    shortDescription: "Khởi tạo một kho Git mới.",
-    description: "Khởi tạo một kho Git mới.",
+    shortDescription:
+      "Khởi tạo một repository(kho) Git mới trên máy tính của bạn.",
+    description: `Khởi tạo một repository(kho) Git mới trên máy tính của bạn.
+    Lệnh này sẽ tạo ra một thư mục .git trong thư mục hiện tại, nơi Git sẽ lưu trữ tất cả các thông tin về lịch sử thay đổi của kho.
+    Bạn có thể sử dụng lệnh này khi bắt đầu một dự án mới hoặc khi muốn theo dõi các thay đổi của từng tệp trong một thư mục hiện có.
+    Sau khi chạy lệnh này, bạn có thể bắt đầu thêm các tệp vào kho Git bằng lệnh git add và sau đó commit các thay đổi bằng lệnh git commit.
+    Lưu ý rằng lệnh này sẽ không tự động thêm các tệp vào kho Git, bạn cần sử dụng lệnh git add để thêm các tệp mà bạn muốn theo dõi.
+    Nếu muốn liên kết kho Git mới với một kho từ xa (remote repository), bạn có thể sử dụng lệnh git remote add origin <url> để thêm kho từ xa đó.
+    Lệnh này sẽ cho phép bạn đẩy các thay đổi từ kho cục bộ lên kho từ xa và kéo các thay đổi từ kho từ xa về kho cục bộ.
+    Ví dụ: git init my-project sẽ tạo ra một kho Git mới trong thư mục my-project.
+    Nếu bạn muốn khởi tạo một kho Git trong thư mục hiện tại, chỉ cần chạy git init.
+    Liên kết bằng git remote add origin <url> và dùng git add .  cũng như git commit -m "Initial commit" để thêm các tệp vào kho Git.
+    Sau đó, bạn có thể đẩy các thay đổi lên kho từ xa bằng lệnh git push -u origin main (hoặc master tùy thuộc vào tên nhánh chính của bạn).
+    Câu lệnh này sẽ đẩy các thay đổi từ kho cục bộ lên kho từ xa và thiết lập nhánh chính (main hoặc master) làm nhánh theo dõi cho kho từ xa.`,
   },
   {
     command: "git clone",
@@ -165,8 +177,8 @@ const GitPage = () => {
           <LargeTypo>Các lệnh cơ bản của Git bao gồm:</LargeTypo>
           <ListTypo>
             {GIT_COMMANDS.map((command) => (
-              <li className="italic hover:text-destructive">
-                <Link key={command.key} href={`#${command.key}`}>
+              <li key={command.key} className="italic hover:text-destructive">
+                <Link href={`#${command.key}`}>
                   <strong>{command.command}</strong>: {command.shortDescription}
                 </Link>
               </li>
