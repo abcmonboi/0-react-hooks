@@ -13,16 +13,12 @@ const page = () => {
       <CardContent>
         <ListTypo>
           {LESSONS.map((item) => (
-            <Link
-              className="italic hover:text-destructive"
-              key={item.id}
-              href={`/vi/lessons/0${item.id}`}
-            >
-              <li className="mb-2">
+            <li className="italic hover:text-destructive" key={item.id}>
+              <Link href={`/vi/lessons/0${item.id}`}>
                 <span>Lesson 0{item.id}: </span>
                 <span className="font-semibold"> {item.label}</span>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ListTypo>
       </CardContent>

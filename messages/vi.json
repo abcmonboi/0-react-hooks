@@ -3,6 +3,11 @@
     "language": {
       "vi": "Tiếng Việt",
       "en": "Tiếng Anh"
+    },
+    "sidebar": {
+      "nav": {
+        "advanced": "Một số kiến thức khác"
+      }
     }
   },
 

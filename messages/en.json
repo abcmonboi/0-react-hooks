@@ -3,6 +3,11 @@
     "language": {
       "vi": "Vietnamese",
       "en": "English"
+    },
+    "sidebar": {
+      "nav": {
+        "advanced": "Advanced Knowledge"
+      }
     }
   },
 

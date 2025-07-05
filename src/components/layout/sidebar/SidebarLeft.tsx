@@ -21,7 +21,6 @@ import {
 import { NavHook } from "@/components/layout/sidebar/NavHook";
 import { NavMain } from "@/components/layout/sidebar/NavMain";
 import { NavSecondary } from "@/components/nav-secondary";
-import { NavWorkspaces } from "@/components/nav-workspaces";
 import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
@@ -29,6 +28,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { NavAdvanced } from "@/components/layout/sidebar/NavAdvanced";
 
 // This is sample data.
 const data = {
@@ -161,10 +161,11 @@ const data = {
       emoji: "✅",
     },
   ],
-  workspaces: [
+  advanced: [
     {
-      name: "Personal Life Management",
+      name: "Git & Version Control",
       emoji: "🏠",
+      url: "git",
       pages: [
         {
           name: "Daily Journal & Reflection",
@@ -281,7 +282,7 @@ export function SidebarLeft({
       </SidebarHeader>
       <SidebarContent>
         <NavHook hooks={data.hooks} />
-        <NavWorkspaces workspaces={data.workspaces} />
+        <NavAdvanced advanced={data.advanced} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarRail />

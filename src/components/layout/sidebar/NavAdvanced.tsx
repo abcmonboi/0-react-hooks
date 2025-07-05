@@ -1,10 +1,10 @@
-import { ChevronRight, MoreHorizontal, Plus } from "lucide-react"
+import { ChevronRight, MoreHorizontal, Plus } from "lucide-react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -16,33 +16,37 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-export function NavWorkspaces({
-  workspaces,
+export function NavAdvanced({
+  advanced,
 }: {
-  workspaces: {
-    name: string
-    emoji: React.ReactNode
+  advanced: {
+    name: string;
+    url?: string;
+    emoji: React.ReactNode;
     pages: {
-      name: string
-      emoji: React.ReactNode
-    }[]
-  }[]
+      name: string;
+      emoji: React.ReactNode;
+    }[];
+  }[];
 }) {
+  const t = useTranslations("Layout.sidebar.nav");
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Workspaces</SidebarGroupLabel>
+      <SidebarGroupLabel>{t("advanced")}</SidebarGroupLabel>
       <SidebarGroupContent>
         <SidebarMenu>
-          {workspaces.map((workspace) => (
-            <Collapsible key={workspace.name}>
+          {advanced.map((item) => (
+            <Collapsible key={item.name}>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <a href="#">
-                    <span>{workspace.emoji}</span>
-                    <span>{workspace.name}</span>
-                  </a>
+                  <Link href={item.url ?? "#"}>
+                    <span>{item.emoji}</span>
+                    <span>{item.name}</span>
+                  </Link>
                 </SidebarMenuButton>
                 <CollapsibleTrigger asChild>
                   <SidebarMenuAction
@@ -57,13 +61,13 @@ export function NavWorkspaces({
                 </SidebarMenuAction>
                 <CollapsibleContent>
                   <SidebarMenuSub>
-                    {workspace.pages.map((page) => (
+                    {item.pages.map((page) => (
                       <SidebarMenuSubItem key={page.name}>
                         <SidebarMenuSubButton asChild>
-                          <a href="#">
+                          <Link href="#">
                             <span>{page.emoji}</span>
                             <span>{page.name}</span>
-                          </a>
+                          </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
@@ -81,5 +85,5 @@ export function NavWorkspaces({
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }

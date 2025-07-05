@@ -10,7 +10,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@radix-ui/react-dropdown-menu";
 
 const Header = () => (
-  <header className="bg-background sticky top-0 flex h-14 shrink-0 items-center gap-2">
+  <header className="bg-background sticky top-0 flex h-14 shrink-0 items-center gap-2 z-10">
     <div className="flex flex-1 items-center gap-2 px-3">
       <SidebarTrigger />
       <Separator
