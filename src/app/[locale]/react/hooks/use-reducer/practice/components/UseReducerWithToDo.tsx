@@ -23,6 +23,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { X } from "lucide-react";
 
 interface State {
   tasks: string[];
@@ -142,7 +143,7 @@ const UseReducerWithToDo = () => {
               <div className="flex justify-between mb-4" key={index + task}>
                 <li className="marker:text-green-500">{task}</li>
                 <Button onClick={() => dispatch(removeTask(index))}>
-                  &times;
+                  <X />
                 </Button>
               </div>
             ))}

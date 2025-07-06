@@ -146,8 +146,8 @@ const data = {
       emoji: "🏠",
     },
     {
-      name: "...1",
-      url: "#",
+      name: "useContext()",
+      url: "/react/hooks/use-context",
       emoji: "💰",
     },
     {
