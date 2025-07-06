@@ -185,8 +185,9 @@ const data = {
       ],
     },
     {
-      name: "Professional Development",
+      name: "Npm Commands & Scripts",
       emoji: "💼",
+      url: "npm",
       pages: [
         {
           name: "Career Objectives & Milestones",

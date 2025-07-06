@@ -166,11 +166,13 @@ const GitPage = () => {
         <CardHeader>
           <H2Typo>Git & Version Control</H2Typo>
           <LeadTypo>
-            Git là một hệ thống quản lý phiên bản phân tán, cho phép bạn theo
-            dõi các thay đổi trong mã nguồn và làm việc cùng với những người
-            khác một cách hiệu quả. Nó rất hữu ích trong việc phát triển phần
-            mềm, giúp bạn quản lý lịch sử thay đổi, hợp nhất các nhánh và khôi
-            phục lại các phiên bản trước đó của mã nguồn.
+            Git là một hệ thống quản lý phiên bản (version control system - VCS
+            ) phổ biến, được sử dụng để theo dõi các thay đổi trong mã nguồn
+            code và các tệp khác trong một dự án phần mềm. Nó cho phép bạn lưu
+            trữ, theo dõi các thay đổi trong mã nguồn và làm việc cùng với những
+            người khác một cách hiệu quả. Nó rất hữu ích trong việc phát triển
+            phần mềm, giúp bạn quản lý lịch sử thay đổi, hợp nhất các nhánh và
+            khôi phục lại các phiên bản trước đó của mã nguồn.
           </LeadTypo>
         </CardHeader>
         <CardContent>
