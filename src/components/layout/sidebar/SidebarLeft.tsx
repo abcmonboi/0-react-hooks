@@ -207,13 +207,14 @@ const data = {
       ],
     },
     {
-      name: "Creative Projects",
+      name: "Next",
       emoji: "🎨",
+      url: "next",
       pages: [
         {
-          name: "Writing Ideas & Story Outlines",
-          url: "#",
-          emoji: "✍️",
+          name: "API Reference & Documentation",
+          url: "next/api-reference",
+          emoji: "📖",
         },
         {
           name: "Art & Design Portfolio",

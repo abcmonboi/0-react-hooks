@@ -15,6 +15,11 @@ const nextConfig = {
         destination: "/:locale/react/hooks/use-state",
         permanent: true,
       },
+      {
+        source: "/:locale/next",
+        destination: "/:locale/next/api-reference",
+        permanent: true,
+      },
     ];
   },
   // Add any other Next.js configuration options here
