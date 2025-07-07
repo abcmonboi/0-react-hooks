@@ -32,7 +32,7 @@ const GlobalState = () => {
           thể gặp phải vấn đề về hiệu suất khi có nhiều component lắng nghe và
           cập nhật trạng thái. Điều này có thể dẫn đến việc render lại nhiều
           component không cần thiết, làm giảm hiệu suất của ứng dụng. Sử dụng{" "}
-          <b>useReducer</b>
+          <b>useReducer </b>
           kết hợp với <b>useContext</b> giúp ta quản lý trạng thái phức tạp hơn,
           đồng thời tối ưu hóa việc render lại các component chỉ khi cần thiết.
           <br />
@@ -44,7 +44,7 @@ const GlobalState = () => {
           kiểm soát rõ ràng hơn cách mà trạng thái được cập nhật, đồng thời giảm
           thiểu việc render lại các component không cần thiết.
         </PTypo>
-        <BlockquoteTypo>
+        <PTypo>
           <b>VD: </b>
           Giả sử ta có một ứng dụng quản lý giỏ hàng, trong đó có nhiều
           component cần truy cập và cập nhật trạng thái giỏ hàng. Nếu ta sử dụng{" "}
@@ -64,7 +64,26 @@ const GlobalState = () => {
             hàng. Chỉ những component nào thực sự cần cập nhật giỏ hàng mới
             được render lại, giúp tối ưu hóa hiệu suất của ứng dụng.
             `}
+        </PTypo>
+
+        <LargeTypo>
+          Điểm yếu của state global sử dụng context + reducer:{" "}
+        </LargeTypo>
+        <BlockquoteTypo>
+          Khi sử dụng context + reducer để quản lý state global, ta sẽ gặp vấn
+          đề rằng state global là 1 object chứa tất cả các trạng thái của ứng
+          dụng. Khi có bất kỳ thay đổi nào trong state global, tất cả các
+          component lắng nghe context sẽ được render lại. Dẫn đến việc các
+          component đang sử dụng chung global state với 1 state khác sẽ bị
+          render lại dù state này không thay đổi. Điều này có thể làm giảm hiệu
+          suất của ứng dụng, đặc biệt là khi có nhiều component lắng nghe
+          context và state global có kích thước lớn.
         </BlockquoteTypo>
+        <PTypo>
+          Ta có thể giải quyết vấn đề này bằng cách sử dụng{" "}
+          <b>useContextSelector</b> hoặc đơn giản nhất là thư viện
+          <b> zustand</b>, <b>redux</b>, <b>recoil</b>,... để quản lý state
+        </PTypo>
       </CardContent>
     </Card>
   );
