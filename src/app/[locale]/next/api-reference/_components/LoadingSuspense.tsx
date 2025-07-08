@@ -54,7 +54,7 @@ const LoadingSuspense = () => {
         <br />
         <H3Typo>Các phương thức</H3Typo>
         <br />
-        <LargeTypo>Navigation</LargeTypo>
+        <H4Typo>Navigation</H4Typo>
         <ListTypo>
           <li>
             Giao diện được <b>Fallback</b> là giao diện đã được{" "}
@@ -74,9 +74,9 @@ const LoadingSuspense = () => {
             `Layouts` chung vẫn được bảo toàn
           </li>
         </ListTypo>
-        <LargeTypo>
+        <H4Typo>
           Instant Loading States (Thực thể của 1 Trạng thái tải tức thì)
-        </LargeTypo>
+        </H4Typo>
         <PTypo>
           Định nghĩa này có nghĩa là việc khi điều huowsng thì ngay lập tức sẽ
           phải hiển thi ra giao diện <b>fallback</b>. Bạn có thể{" "}
@@ -103,13 +103,14 @@ const LoadingSuspense = () => {
           bọc page với fallback mặc định từ file loading.js
         </BlockquoteTypo>
         <br />
-        <LargeTypo>SEO</LargeTypo>
+        <H4Typo>SEO</H4Typo>
         <ListTypo>
           <li>
             Next.js sẽ chờ việc lấy dữ liệu trong{" "}
-            <b className="text-blue-500">generateMetadata</b>
+            <b className="text-blue-500">generateMetadata </b>
             được hoàn thành trước khi mà chuyển tới client. Vậy nên sẽ đảm bảo
-            phần đầu tiên của phản hồi đã bảo gồm đầy đủ thẻ <b>{`<head>`}</b>
+            phần đầu tiên của phản hồi đã bảo gồm đầy đủ thẻ{" "}
+            <b>{`<head></head>`}</b>.
           </li>
           <li>
             Vì việc <b>streaming</b> đã được render phía server, nên nó sẽ không
@@ -119,23 +120,90 @@ const LoadingSuspense = () => {
             tạo.
           </li>
         </ListTypo>
-        <br />
-        <LargeTypo>Status Codes (Mã trạng thái)</LargeTypo>
+        <H4Typo>Status Codes (Mã trạng thái)</H4Typo>
         <PTypo>
           Khi sử dụng streaming (phát nội dung theo luồng), mã trạng thái HTTP
           200 sẽ được trả về để cho biết rằng yêu cầu đã được xử lý thành công.
+        </PTypo>
+        <BlockquoteTypo>
           Streaming nghĩa là máy chủ sẽ gửi dần nội dung HTML về phía client
           từng phần một, thay vì phải đợi toàn bộ nội dung render xong mới gửi
           đi. Điều này giúp giao diện có thể hiển thị sớm hơn, cải thiện tốc độ
-          phản hồi của ứng dụng. Mặc dù mã trạng thái đã được gửi là 200, máy
-          chủ vẫn có thể truyền đạt lỗi hoặc các vấn đề tới client thông qua nội
-          dung được stream, ví dụ bằng cách gọi redirect() (chuyển hướng) hoặc
-          notFound() (trả về trang không tồn tại). Tuy nhiên, vì header của phản
-          hồi (bao gồm mã trạng thái HTTP) đã được gửi đi, nên không thể thay
-          đổi mã trạng thái HTTP sau đó. Việc này không ảnh hưởng đến SEO, vì
-          các công cụ tìm kiếm (search engines) vẫn có thể hiểu được nội dung và
-          trạng thái thực tế từ nội dung HTML được trả về.
+          phản hồi của ứng dụng.
+        </BlockquoteTypo>
+        <br />
+        <PTypo>
+          Mặc dù mã trạng thái đã được gửi là 200, máy chủ vẫn có thể truyền đạt
+          lỗi hoặc các vấn đề tới client thông qua nội dung được stream, ví dụ
+          bằng cách gọi redirect() (chuyển hướng) hoặc notFound() (trả về trang
+          không tồn tại). Tuy nhiên, vì header của phản hồi (bao gồm mã trạng
+          thái HTTP) đã được gửi đi, nên không thể thay đổi mã trạng thái HTTP
+          sau đó. Việc này không ảnh hưởng đến SEO, vì các công cụ tìm kiếm
+          (search engines) vẫn có thể hiểu được nội dung và trạng thái thực tế
+          từ nội dung HTML được trả về.
         </PTypo>
+        <br />
+        <H4Typo>Browser limits (Giới hạn của trình duyệt) </H4Typo>
+        <PTypo>
+          Một số trình duyệt buffers a streaming response.( Giữ lại nội dung
+          đang stream thay vì hiển thị ngay, đợi đủ lớn (ví dụ 1024 byte) mới
+          render lên màn hình.)
+        </PTypo>
+        <PTypo>
+          Điều này thường chỉ ảnh hưởng đến các ứng dụng đơn giản (ứng dụng nhỏ)
+          kiểu “hello world” (Các ứng dụng thành phần chưa tới 1024 byte), chứ
+          không ảnh hưởng đến các ứng dụng thực tế có nội dung lớn hơn.
+        </PTypo>
+        <br />
+        <LargeTypo>Giải thích cụ thể hơn:</LargeTypo>
+        <ListTypo>
+          <li>
+            Streaming: Là quá trình máy chủ gửi nội dung từng phần nhỏ về client
+            thay vì đợi toàn bộ trang render xong rồi mới gửi (giúp hiển thị
+            nhanh hơn).
+          </li>
+          <li>
+            Buffering: Trình duyệt lưu trữ tạm nội dung được gửi đến trong một
+            vùng nhớ đệm, và không hiển thị ngay.
+          </li>
+        </ListTypo>
+        <BlockquoteTypo>
+          Ví dụ: Server gửi về <b>{`<div>Loading...</div>`} </b> ngay từ đầu,
+          nhưng nếu tổng dữ liệu chưa tới 1024 byte, trình duyệt sẽ không hiển
+          thị phần đó ngay, mà đợi thêm dữ liệu được gửi về rồi mới hiển thị tất
+          cả cùng lúc.
+        </BlockquoteTypo>
+        <br />
+        <H3Typo>Ví dụ:</H3Typo>
+        <br />
+        <H4Typo>
+          Streaming with Suspense:(Việc gửi từng phần nhỏ về client với
+          Suspense)
+        </H4Typo>
+        <PTypo>
+          Ngoài việc sử dụng loading.js, bạn cũng có thể tự tạo ranh giới
+          Suspense <b>{`(<Suspense>)`}</b> cho các component trong giao diện của
+          mình. App Router trong Next.js hỗ trợ streaming thông qua Suspense.
+        </PTypo>
+        <PTypo>
+          <b>{`(<Suspense>)`}</b> sẽ bọc quanh một component có hành động bất
+          đồng bộ (ví dụ: fetch dữ liệu). Trong thời gian chờ, nó sẽ hiển thị UI
+          tạm thời (fallback) như skeleton, spinner,... và sau khi dữ liệu tải
+          xong, nó sẽ thay thế bằng component thực tế.
+        </PTypo>
+        <PTypo>
+          Lợi ích khi sử dụng <b>Suspense</b>
+        </PTypo>
+        <ListTypo>
+          <li>
+            Streaming Server Rendering <b>(SSR)</b>: HTML sẽ được render dần dần
+            từ server về client, giúp nội dung hiển thị nhanh hơn.
+          </li>
+          <li>
+            Selective Hydration: React sẽ ưu tiên kích hoạt tương tác cho những
+            component quan trọng trước, dựa trên hành vi người dùng.
+          </li>
+        </ListTypo>
       </CardContent>
     </Card>
   );
