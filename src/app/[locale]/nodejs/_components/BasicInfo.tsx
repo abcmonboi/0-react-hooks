@@ -24,23 +24,25 @@ const BasicInfo = () => {
           bằng JavaScript mà không cần trình duyệt.
           <br />
           <br />
-          📌 Nếu trình duyệt là nơi chạy JavaScript ở{" "}
-          <b>giao diện người dùng</b> (front-end), thì:
-          <br />→ Node.js là nơi chạy JavaScript ở <b>phía máy chủ</b>{" "}
+          📌 Nếu trình duyệt là nơi chạy JavaScript ở<b>
+            giao diện người dùng
+          </b>{" "}
+          (front-end), thì:
+          <br />→ Node.js là nơi chạy JavaScript ở <b>phía máy chủ</b>
           (back-end).
           <br />
           Điều đó có nghĩa là bạn có thể dùng chung một ngôn ngữ (JS) cho cả
           client và server.
           <br />
           <br />
-          Node.js được xây dựng dựa trên <b>Chrome's V8 JavaScript engine</b> –
-          đây là lõi xử lý JavaScript rất mạnh, do Google phát triển cho trình
-          duyệt Chrome.
+          Node.js được xây dựng dựa trên
+          <b>Chrome&apos;s V8 JavaScript engine</b> – đây là lõi xử lý
+          JavaScript rất mạnh, do Google phát triển cho trình duyệt Chrome.
           <br />
           ✅ Nhờ engine này, Node.js có thể thực thi mã JavaScript rất nhanh,
           tương đương các ngôn ngữ server-side khác như PHP, Python,...
           <br />
-          <br />✨ Tóm lại: Node.js biến JavaScript thành một ngôn ngữ{" "}
+          <br />✨ Tóm lại: Node.js biến JavaScript thành một ngôn ngữ
           <b>fullstack</b> thực thụ – có thể dùng cho cả giao diện (HTML/CSS) và
           máy chủ (API, DB, Auth...).
         </LeadTypo>
@@ -50,13 +52,13 @@ const BasicInfo = () => {
         <PTypo>
           Trước khi có Node.js, JavaScript chỉ được dùng để xử lý logic phía
           giao diện (trình duyệt). Nhưng nhờ Node.js, chúng ta có thể sử dụng
-          cùng một ngôn ngữ JavaScript để xử lý cả <b>front-end</b> và{" "}
+          cùng một ngôn ngữ JavaScript để xử lý cả <b>front-end</b> và
           <b>back-end</b>.
         </PTypo>
 
         <ListTypo>
           <li>
-            <b>Ở phía front-end:</b> Node.js thường được dùng để tạo{" "}
+            <b>Ở phía front-end:</b> Node.js thường được dùng để tạo
             <b>máy chủ nội bộ (dev server)</b> để phục vụ giao diện (ví dụ như
             khi dùng <InlineCodeTypo>npm run dev</InlineCodeTypo> để khởi chạy
             React/Vite/Next.js). Các tool build (Vite/Webpack/Babel/ESLint...)
@@ -68,7 +70,7 @@ const BasicInfo = () => {
             điều này.Không có Node.js ⇒ bạn sẽ không thể dùng được
             React/Vite/Webpack/... trong local máy của mình.
             <BlockquoteTypo>
-              <b> Tại sao cần "server"?</b>
+              <b> Tại sao cần &quot;server&quot;?</b>
               <br />
               {`Vì React (và JSX) không phải là mã mà trình duyệt hiểu trực tiếp.
             Bạn cần một quá trình "build" hoặc "transpile" qua
@@ -87,10 +89,8 @@ const BasicInfo = () => {
             <BlockquoteTypo>
               <b>Khi nào không cần server này?</b>
               <br />
-              Khi bạn chạy lệnh <InlineCodeTypo>
-                npm run build
-              </InlineCodeTypo>{" "}
-              Thì: React sẽ được build thành các file tĩnh trong thư mục{" "}
+              Khi bạn chạy lệnh <InlineCodeTypo>npm run build</InlineCodeTypo>
+              Thì: React sẽ được build thành các file tĩnh trong thư mục
               <b>/dist</b>
               hoặc <b>/build</b> Bạn không cần server dev nữa Các file tĩnh có
               thể deploy lên bất kỳ web server nào (Vercel, Netlify, Apache,...)
@@ -108,9 +108,9 @@ const BasicInfo = () => {
         <PTypo>
           Khi bạn cài Node.js, nó cũng tự động cài thêm công cụ <b>npm</b> (Node
           Package Manager) – giúp cài đặt các thư viện từ <b>npmjs.com</b> để hỗ
-          trợ phát triển dự án. Hầu hết các thư viện phổ biến như{" "}
-          <InlineCodeTypo>express</InlineCodeTypo>,{" "}
-          <InlineCodeTypo>dotenv</InlineCodeTypo>,{" "}
+          trợ phát triển dự án. Hầu hết các thư viện phổ biến như
+          <InlineCodeTypo>express</InlineCodeTypo>,
+          <InlineCodeTypo>dotenv</InlineCodeTypo>,
           <InlineCodeTypo>mongoose</InlineCodeTypo> đều hoạt động dựa trên
           Node.js.
         </PTypo>
@@ -123,7 +123,7 @@ const BasicInfo = () => {
           Ví dụ: <br />
           <InlineCodeTypo>node index.js</InlineCodeTypo>
           <br />
-          Câu lệnh này sẽ yêu cầu Node.js thực thi nội dung của file{" "}
+          Câu lệnh này sẽ yêu cầu Node.js thực thi nội dung của file
           <i>index.js</i> ngay trong môi trường dòng lệnh (terminal).
         </PTypo>
 
@@ -131,7 +131,7 @@ const BasicInfo = () => {
           Trước đây, muốn chạy code JavaScript bạn phải dùng trình duyệt (vì nó
           có sẵn engine V8).
           <br />
-          Nhưng với Node.js, bạn có thể chạy code JavaScript{" "}
+          Nhưng với Node.js, bạn có thể chạy code JavaScript
           <b>trực tiếp trong terminal</b>, không cần trình duyệt. Điều này biến
           JavaScript thành ngôn ngữ có thể dùng để viết phần mềm máy chủ, CLI
           tool, web server,...
@@ -144,9 +144,7 @@ const BasicInfo = () => {
           <br />
           <InlineCodeTypo>npm init</InlineCodeTypo>
           <br />
-          Lệnh này sẽ tạo file <InlineCodeTypo>
-            package.json
-          </InlineCodeTypo>{" "}
+          Lệnh này sẽ tạo file <InlineCodeTypo>package.json</InlineCodeTypo>
           dùng để lưu thông tin dự án như tên, mô tả, phiên bản, thư viện phụ
           thuộc,...
         </PTypo>
@@ -157,15 +155,15 @@ const BasicInfo = () => {
           <br />
           Ví dụ: <InlineCodeTypo>npm init -y</InlineCodeTypo>
           <br />
-          Thuộc tính <b>main</b> trong file{" "}
-          <InlineCodeTypo>package.json</InlineCodeTypo> là file{" "}
-          <b>entry point</b> – nơi Node.js sẽ chạy đầu tiên, thường là{" "}
+          Thuộc tính <b>main</b> trong file
+          <InlineCodeTypo>package.json</InlineCodeTypo> là file
+          <b>entry point</b> – nơi Node.js sẽ chạy đầu tiên, thường là
           <InlineCodeTypo>index.js</InlineCodeTypo>.
         </BlockquoteTypo>
         <br />
         <H3Typo>scripts – Viết câu lệnh chạy nhanh</H3Typo>
         <PTypo>
-          Trong <InlineCodeTypo>package.json</InlineCodeTypo>, phần{" "}
+          Trong <InlineCodeTypo>package.json</InlineCodeTypo>, phần
           <b>scripts</b> cho phép bạn định nghĩa các câu lệnh tùy chỉnh để chạy
           nhanh bằng <InlineCodeTypo>npm run</InlineCodeTypo>.
         </PTypo>
@@ -180,34 +178,43 @@ const BasicInfo = () => {
         </BlockquoteTypo>
         <br />
         <H3Typo>
-          type (Thuộc tính <InlineCodeTypo>"type"</InlineCodeTypo> trong
-          package.json)
+          type (Thuộc tính <InlineCodeTypo>&quot;type&quot;</InlineCodeTypo>{" "}
+          trong package.json)
         </H3Typo>
         <PTypo>
-          Thuộc tính <InlineCodeTypo>"type"</InlineCodeTypo> được dùng để chỉ
-          định kiểu module cho toàn bộ dự án:
+          Thuộc tính <InlineCodeTypo>&quot;type&quot;</InlineCodeTypo> được dùng
+          để chỉ định kiểu module cho toàn bộ dự án:
         </PTypo>
 
         <ListTypo>
           <li>
-            <InlineCodeTypo>"type": "commonjs"</InlineCodeTypo> (mặc định): sử
-            dụng cú pháp <InlineCodeTypo>require()</InlineCodeTypo> và{" "}
+            <InlineCodeTypo>
+              &quot;type&quot;: &quot;commonjs&quot;
+            </InlineCodeTypo>
+            (mặc định): sử dụng cú pháp
+            <InlineCodeTypo>require()</InlineCodeTypo> và
             <InlineCodeTypo>module.exports</InlineCodeTypo>
           </li>
           <li>
-            <InlineCodeTypo>"type": "module"</InlineCodeTypo>: cho phép dùng cú
-            pháp <InlineCodeTypo>import</InlineCodeTypo> và{" "}
+            <InlineCodeTypo>
+              &quot;type&quot;: &quot;module&quot;
+            </InlineCodeTypo>
+            : cho phép dùng cú pháp <InlineCodeTypo>import</InlineCodeTypo> và
             <InlineCodeTypo>export</InlineCodeTypo> hiện đại.
           </li>
           <li>
-            Khi dùng <b>type: module</b>, nếu file có đuôi{" "}
+            Khi dùng <b>type: module</b>, nếu file có đuôi
             <InlineCodeTypo>.js</InlineCodeTypo> thì phải nằm trong project có
-            khai báo rõ <InlineCodeTypo>"type": "module"</InlineCodeTypo>, hoặc
-            bạn phải đổi tên file thành <InlineCodeTypo>.mjs</InlineCodeTypo>.
+            khai báo rõ
+            <InlineCodeTypo>
+              &quot;type&quot;: &quot;module&quot;
+            </InlineCodeTypo>
+            , hoặc bạn phải đổi tên file thành{" "}
+            <InlineCodeTypo>.mjs</InlineCodeTypo>.
           </li>
           <li>
-            Có thể ghi đè lại kiểu module bằng đuôi file{" "}
-            <InlineCodeTypo>.cjs</InlineCodeTypo> hoặc{" "}
+            Có thể ghi đè lại kiểu module bằng đuôi file
+            <InlineCodeTypo>.cjs</InlineCodeTypo> hoặc
             <InlineCodeTypo>.mjs</InlineCodeTypo>
           </li>
         </ListTypo>
@@ -215,11 +222,12 @@ const BasicInfo = () => {
         <BlockquoteTypo>
           Ví dụ nếu bạn viết:
           <br />
-          <InlineCodeTypo>import express from 'express'</InlineCodeTypo>
+          <InlineCodeTypo>
+            import express from &apos;express&apos;
+          </InlineCodeTypo>
           <br />
-          Thì bạn cần khai báo <InlineCodeTypo>
-            "type": "module"
-          </InlineCodeTypo>{" "}
+          Thì bạn cần khai báo
+          <InlineCodeTypo>&quot;type&quot;: &quot;module&quot;</InlineCodeTypo>
           trong file <InlineCodeTypo>package.json</InlineCodeTypo>
         </BlockquoteTypo>
       </CardContent>

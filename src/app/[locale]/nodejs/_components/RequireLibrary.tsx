@@ -22,11 +22,11 @@ const RequireLibrary = () => {
       </CardHeader>
       <CardContent>
         <H3Typo>
-          Express (Thư viện express) -{" "}
+          Express (Thư viện express) -
           <InlineCodeTypo>npm i express</InlineCodeTypo>
         </H3Typo>
         <PTypo>
-          Express đơn giản là một thư viện giúp{" "}
+          Express đơn giản là một thư viện giúp
           <b>khởi tạo và chạy một server Node.js</b> một cách dễ dàng. Nó cung
           cấp các API đơn giản để xử lý request từ client, response và xây dựng
           các tuyến đường (route) cho ứng dụng web hoặc API, quản lý middleware,
@@ -48,7 +48,7 @@ const RequireLibrary = () => {
           <InlineCodeTypo>const app = express()</InlineCodeTypo>
           <br />
           Biến <InlineCodeTypo>app</InlineCodeTypo> là một đối tượng đại diện
-          cho toàn bộ ứng dụng web/server, được tạo ra từ hàm{" "}
+          cho toàn bộ ứng dụng web/server, được tạo ra từ hàm
           <InlineCodeTypo>express()</InlineCodeTypo>. Đây là một object function
           chứa nhiều phương thức giúp định nghĩa route, middleware và cấu hình
           server.
@@ -73,35 +73,35 @@ const RequireLibrary = () => {
             dùng để tự động parse body của request được gửi từ client có định
             dạng JSON. Giúp đọc dữ liệu gửi từ client qua body.
             <br />
-            Mặc định, body của request gửi lên sẽ ở dạng{" "}
+            Mặc định, body của request gửi lên sẽ ở dạng
             <b>raw Buffer binary</b> – tức là dữ liệu nhị phân thô chưa xử lý,
             nên Express không thể đọc được trực tiếp.
             <br />
             Middleware <InlineCodeTypo>express.json()</InlineCodeTypo> sẽ:
             <br />
             - Tự động đọc và ghép các Buffer lại thành chuỗi JSON
-            <br />- Parse chuỗi đó thành object bằng{" "}
+            <br />- Parse chuỗi đó thành object bằng
             <InlineCodeTypo>JSON.parse()</InlineCodeTypo>
             <br />- Gán kết quả vào <InlineCodeTypo>req.body</InlineCodeTypo> để
             server có thể sử dụng như một object JavaScript thông thường
           </li>
           <li>
             <InlineCodeTypo>express.urlencoded()</InlineCodeTypo> – Middleware
-            dùng để parse dữ liệu trong <b>body</b> khi client gửi lên với{" "}
+            dùng để parse dữ liệu trong <b>body</b> khi client gửi lên với
             <InlineCodeTypo>
               Content-Type: application/x-www-form-urlencoded
-            </InlineCodeTypo>{" "}
+            </InlineCodeTypo>
             (thường gặp khi gửi form HTML).
             <br />
             Mặc định, body của request cũng là <b>raw Buffer binary</b> nên
             Express không thể hiểu nếu không có middleware này.
             <br />
-            Middleware{" "}
-            <InlineCodeTypo>{`express.urlencoded({ extended: true })`}</InlineCodeTypo>{" "}
+            Middleware
+            <InlineCodeTypo>{`express.urlencoded({ extended: true })`}</InlineCodeTypo>
             sẽ:
-            <br />- Đọc và parse dữ liệu dạng{" "}
+            <br />- Đọc và parse dữ liệu dạng
             <InlineCodeTypo>key=value&key2=value2</InlineCodeTypo>
-            <br />- Chuyển thành object JavaScript gán vào{" "}
+            <br />- Chuyển thành object JavaScript gán vào
             <InlineCodeTypo>req.body</InlineCodeTypo>
             <br />
             <br />
@@ -110,7 +110,7 @@ const RequireLibrary = () => {
             <br />- <InlineCodeTypo>extended: false</InlineCodeTypo>: chỉ parse
             object đơn giản, dùng thư viện Node.js mặc định
             <br />- <InlineCodeTypo>extended: true</InlineCodeTypo>: hỗ trợ
-            parse object phức tạp (lồng nhau) nhờ thư viện{" "}
+            parse object phức tạp (lồng nhau) nhờ thư viện
             <InlineCodeTypo>qs</InlineCodeTypo>
           </li>
 
@@ -127,7 +127,7 @@ const RequireLibrary = () => {
           Đây là bước cuối cùng trong một ứng dụng Express để server bắt đầu
           hoạt động và tiếp nhận request.
           <br />
-          Phương thức này trả về một <b>instance của HTTP server</b> (gọi là{" "}
+          Phương thức này trả về một <b>instance của HTTP server</b> (gọi là
           <InlineCodeTypo>listener</InlineCodeTypo>), giúp bạn có thể truy cập
           thêm thông tin như địa chỉ hoặc cổng thật sự server đang dùng.
           <br />- <InlineCodeTypo>port</InlineCodeTypo>: số cổng mà server sẽ
@@ -154,7 +154,7 @@ const RequireLibrary = () => {
           đường dẫn <InlineCodeTypo>path</InlineCodeTypo> nhất định.
           <br />
           Middleware trong Express là một <b>callback function</b> (hàm gọi lại)
-          được thực thi mỗi khi có request phù hợp. Hàm này luôn nhận ít nhất{" "}
+          được thực thi mỗi khi có request phù hợp. Hàm này luôn nhận ít nhất
           <b>2 tham số</b>:
           <br />- <InlineCodeTypo>req</InlineCodeTypo>: đối tượng đại diện cho
           request từ client
@@ -162,9 +162,10 @@ const RequireLibrary = () => {
           response trả về cho client
           <br />
           <br />
-          Nếu bạn chỉ truyền <InlineCodeTypo>"/"</InlineCodeTypo> làm đường dẫn,
-          middleware đó sẽ được gọi cho <b>mọi route</b> vì tất cả đường dẫn
-          trong Express đều bắt đầu bằng <InlineCodeTypo>"/"</InlineCodeTypo>.
+          Nếu bạn chỉ truyền <InlineCodeTypo>{`"/"`}</InlineCodeTypo> làm đường
+          dẫn, middleware đó sẽ được gọi cho <b>mọi route</b> vì tất cả đường
+          dẫn trong Express đều bắt đầu bằng{" "}
+          <InlineCodeTypo>{`"/"`}</InlineCodeTypo>.
           <BlockquoteTypo>
             <InlineCodeTypo>
               {`app.use("/", (req, res) => {
@@ -174,19 +175,19 @@ const RequireLibrary = () => {
             <br />
             Khi người dùng truy cập vào <b>http://localhost:3000/</b>, server sẽ
             phản hồi:
-            <InlineCodeTypo>"You are at the root path '/'”</InlineCodeTypo>
+            <InlineCodeTypo>{`"You are at the root path '/'”`}</InlineCodeTypo>
             <br />
-            Và vì tất cả các đường dẫn đều bắt đầu bằng "/", nên middleware này
+            {`    Và vì tất cả các đường dẫn đều bắt đầu bằng "/", nên middleware này
             sẽ được gọi cho <b>mọi request</b> nếu không có route cụ thể xử lý
-            trước.
+            trước.`}
           </BlockquoteTypo>
         </li>
         <br />
         <PTypo>
-          <InlineCodeTypo>res.send()</InlineCodeTypo> – Phương thức dùng để{" "}
+          <InlineCodeTypo>res.send()</InlineCodeTypo> – Phương thức dùng để
           <b>gửi dữ liệu phản hồi</b> (response) từ server về client. Dữ liệu
           này sẽ xuất hiện ở tab <b>Response</b> trong DevTools (F12) của trình
-          duyệt khi client gửi request tới route đó. Khi được gọi,{" "}
+          duyệt khi client gửi request tới route đó. Khi được gọi,
           <InlineCodeTypo>res.send()</InlineCodeTypo> sẽ kết thúc quá trình xử
           lý request và gửi dữ liệu về cho client.
           <br />
@@ -194,7 +195,7 @@ const RequireLibrary = () => {
           bằng công cụ F12 của trình duyệt hoặc Postman:
           <br />- Trình duyệt (Chrome): F12 → tab <b>Network</b> → chọn request
           → tab <b>Response</b>
-          <br />- Postman: phần <b>Body</b> → chế độ <b>Pretty</b> hoặc{" "}
+          <br />- Postman: phần <b>Body</b> → chế độ <b>Pretty</b> hoặc
           <b>Raw</b>
           <br />
           Đây là phương thức phổ biến nhất khi bạn muốn trả về văn bản, chuỗi,
@@ -202,9 +203,9 @@ const RequireLibrary = () => {
           <br />
           Khi được gọi, <InlineCodeTypo>res.send()</InlineCodeTypo> sẽ kết thúc
           quá trình xử lý request và trả dữ liệu cho client. Nếu bạn không gọi
-          phương thức nào để kết thúc response (như{" "}
-          <InlineCodeTypo>res.send</InlineCodeTypo>,{" "}
-          <InlineCodeTypo>res.json</InlineCodeTypo>,{" "}
+          phương thức nào để kết thúc response (như
+          <InlineCodeTypo>res.send</InlineCodeTypo>,
+          <InlineCodeTypo>res.json</InlineCodeTypo>,
           <InlineCodeTypo>res.end</InlineCodeTypo>), client sẽ chờ mãi và không
           nhận được phản hồi.
         </PTypo>
@@ -217,14 +218,14 @@ const RequireLibrary = () => {
           <br />
           Khi người dùng truy cập vào <b>http://localhost:3000/</b>, server sẽ
           trả về phản hồi dạng chuỗi:
-          <InlineCodeTypo>"Welcome to the homepage"</InlineCodeTypo>
+          <InlineCodeTypo>`{"Welcome to the homepage"}`</InlineCodeTypo>
         </BlockquoteTypo>
         <br />
         <PTypo>
           Hàm <InlineCodeTypo>express()</InlineCodeTypo> khi được gọi sẽ trả về
-          một đối tượng <b>Application</b>, có đầy đủ các phương thức như{" "}
-          <InlineCodeTypo>get</InlineCodeTypo>,{" "}
-          <InlineCodeTypo>post</InlineCodeTypo>,{" "}
+          một đối tượng <b>Application</b>, có đầy đủ các phương thức như
+          <InlineCodeTypo>get</InlineCodeTypo>,
+          <InlineCodeTypo>post</InlineCodeTypo>,
           <InlineCodeTypo>use</InlineCodeTypo>,... và hoạt động như một hàm
           (function object). Đây chính là “app” bạn sẽ dùng để xây dựng toàn bộ
           ứng dụng web.
@@ -232,11 +233,11 @@ const RequireLibrary = () => {
 
         <br />
         <H3Typo>
-          dotenv (Thư viện dotenv) -{" "}
+          dotenv (Thư viện dotenv) -
           <InlineCodeTypo>npm i dotenv</InlineCodeTypo>
         </H3Typo>
         <PTypo>
-          Dotenv là một thư viện giúp Node.js đọc các biến môi trường từ file{" "}
+          Dotenv là một thư viện giúp Node.js đọc các biến môi trường từ file
           <b>.env</b>. Điều này giúp quản lý cấu hình một cách linh hoạt, tách
           biệt thông tin nhạy cảm như API key, database URL… khỏi mã nguồn.
         </PTypo>
@@ -260,7 +261,7 @@ const RequireLibrary = () => {
         </BlockquoteTypo>
         <ListTypo>
           <li>
-            Tự động load các biến môi trường từ file <b>.env</b> vào{" "}
+            Tự động load các biến môi trường từ file <b>.env</b> vào
             <InlineCodeTypo>process.env</InlineCodeTypo>
           </li>
           <li>
@@ -268,13 +269,14 @@ const RequireLibrary = () => {
             dễ dàng thay đổi giữa các môi trường (dev, test, production)
           </li>
           <li>
-            Hạn chế rò rỉ thông tin nhạy cảm nếu biết cách{" "}
+            Hạn chế rò rỉ thông tin nhạy cảm nếu biết cách
             <b>thêm .env vào .gitignore</b>
           </li>
           <li>
-            Dễ tích hợp, chỉ cần gọi{" "}
-            <InlineCodeTypo>require("dotenv").config()</InlineCodeTypo> hoặc{" "}
-            <InlineCodeTypo>import "dotenv/config"</InlineCodeTypo> ở đầu file
+            Dễ tích hợp, chỉ cần gọi
+            <InlineCodeTypo>{`require("dotenv").config()`}</InlineCodeTypo> hoặc
+            <InlineCodeTypo>{`import "dotenv/config"`}</InlineCodeTypo> ở đầu
+            file
           </li>
         </ListTypo>
         <H3Typo>
@@ -283,7 +285,7 @@ const RequireLibrary = () => {
         <PTypo>
           CORS (Cross-Origin Resource Sharing) là một cơ chế bảo mật của trình
           duyệt, quy định **trình duyệt chỉ cho phép gửi request đến server khác
-          origin (domain/port/protocol)** nếu server đó cho phép. Thư viện{" "}
+          origin (domain/port/protocol)** nếu server đó cho phép. Thư viện
           <b>cors</b> trong Node.js/Express giúp backend xác định **những URL
           (origin)** nào được phép truy cập tài nguyên.
         </PTypo>
@@ -303,7 +305,7 @@ const RequireLibrary = () => {
             <b>GET, POST, PUT, DELETE,…</b>)
           </li>
           <li>
-            Tích hợp đơn giản với Express thông qua middleware:{" "}
+            Tích hợp đơn giản với Express thông qua middleware:
             <InlineCodeTypo>app.use(cors())</InlineCodeTypo>
           </li>
           <li>
@@ -316,7 +318,7 @@ const RequireLibrary = () => {
           </li>
         </ListTypo>
         <H3Typo>
-          nodemon (Thư viện nodemon) -{" "}
+          nodemon (Thư viện nodemon) -
           <InlineCodeTypo>npm i -D nodemon</InlineCodeTypo>
         </H3Typo>
         <PTypo>
@@ -326,8 +328,8 @@ const RequireLibrary = () => {
           mỗi lần chỉnh sửa file.
         </PTypo>
         <PTypo>
-          Về bản chất, nodemon tương tự như Webpack hoặc Vite ở frontend ở điểm:{" "}
-          <b>giám sát (watch) các thay đổi</b> trong project và{" "}
+          Về bản chất, nodemon tương tự như Webpack hoặc Vite ở frontend ở điểm:
+          <b>giám sát (watch) các thay đổi</b> trong project và
           <b>tự động chạy lại ứng dụng</b> mà không cần thao tác thủ công.
         </PTypo>
         <ListTypo>
@@ -344,7 +346,7 @@ const RequireLibrary = () => {
             tool,...
           </li>
           <li>
-            Có thể cấu hình file, extension, delay hoặc ignore thông qua file{" "}
+            Có thể cấu hình file, extension, delay hoặc ignore thông qua file
             <InlineCodeTypo>nodemon.json</InlineCodeTypo>
           </li>
           <li>
