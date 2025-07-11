@@ -30,6 +30,7 @@ export function NavAdvanced({
     pages: {
       name: string;
       emoji: React.ReactNode;
+      url?: string;
     }[];
   }[];
 }) {
@@ -64,7 +65,7 @@ export function NavAdvanced({
                     {item.pages.map((page) => (
                       <SidebarMenuSubItem key={page.name}>
                         <SidebarMenuSubButton asChild>
-                          <Link href="#">
+                          <Link href={page?.url ?? ""}>
                             <span>{page.emoji}</span>
                             <span>{page.name}</span>
                           </Link>
