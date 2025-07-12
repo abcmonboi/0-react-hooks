@@ -27,59 +27,62 @@ const DirectoryStructure = () => {
             <code>src/</code>
           </strong>
           : Chứa toàn bộ mã nguồn chính của ứng dụng.
-          <br />
-          <BlockquoteTypo>
-            <b>/controller/:</b> là nơi tiếp nhận <b>request</b> từ client,
-            trích xuất dữ liệu cần thiết (như body, query, params), sau đó gọi
-            đến các hàm trong <strong>/service/:</strong> để xử lý logic nghiệp
-            vụ — chẳng hạn như truy xuất cơ sở dữ liệu, xử lý tính toán hoặc gọi
-            API bên ngoài. Sau khi service <b>hoàn tất công việc</b>,{" "}
-            <b>controller </b>
-            sẽ định dạng và gửi response phù hợp trở lại cho client.
-          </BlockquoteTypo>
-          <BlockquoteTypo>
-            <b>/services/:</b> là nơi chứa các logic nghiệp vụ chính, giúp tách
-            biệt phần xử lý dữ liệu {`"cốt lõi"`} ra khỏi controller để code rõ
-            ràng, dễ bảo trì hơn.
-            <b>/controller/:</b> chỉ đóng vai trò điều phối (orchestration),
-            không nên xử lý logic trực tiếp.
-          </BlockquoteTypo>
-          <BlockquoteTypo>
-            <strong>
-              <code>routes/</code>
-            </strong>
-            : Định nghĩa các endpoint và ánh xạ đến controller tương ứng.
-            <br />
-            <strong>
-              <code>models/</code>
-            </strong>
-            : Định nghĩa cấu trúc dữ liệu, thường dùng với cơ sở dữ liệu.
-            <br />
-            <strong>
-              <code>middlewares/</code>
-            </strong>
-            : Xử lý các bước trung gian như xác thực, logging,...
-            <br />
-            <strong>
-              <code>config/</code>
-            </strong>
-            : Chứa các file cấu hình như database, biến môi trường,...
-            <br />
-            <strong>
-              <code>utils/</code>
-            </strong>
-            : Các hàm tiện ích dùng chung trong toàn ứng dụng.
-            <br />
-            <strong>
-              <code>app.js / server.js</code>
-            </strong>
-            : Điểm khởi chạy chính của server.
-            <br />
-          </BlockquoteTypo>
-          <br />
-          Cách tổ chức này giúp tách biệt chức năng, giảm phụ thuộc và dễ dàng
-          mở rộng trong tương lai.
         </PTypo>
+        <BlockquoteTypo>
+          <b>/controllers/:</b> là nơi tiếp nhận <b>request</b> từ client, trích
+          xuất dữ liệu cần thiết (như body, query, params), sau đó gọi đến các
+          hàm trong <strong>/services/:</strong> để xử lý logic nghiệp vụ —
+          chẳng hạn như truy xuất cơ sở dữ liệu, xử lý tính toán hoặc gọi API
+          bên ngoài. Sau khi service <b>hoàn tất công việc</b>,{" "}
+          <b>controller </b>
+          sẽ định dạng và gửi response phù hợp trở lại cho client.
+        </BlockquoteTypo>
+        <BlockquoteTypo>
+          <b>/services/:</b> là nơi chứa các logic nghiệp vụ chính, giúp tách
+          biệt phần xử lý dữ liệu {`"cốt lõi"`} ra khỏi controller để code rõ
+          ràng, dễ bảo trì hơn.
+          <b>/controller/:</b> chỉ đóng vai trò điều phối (orchestration), không
+          nên xử lý logic trực tiếp.
+        </BlockquoteTypo>
+        <BlockquoteTypo>
+          <strong>
+            <code>routes/</code>
+          </strong>
+          : là nơi định nghĩa các endpoint (đường dẫn API) mà ứng dụng backend
+          hỗ trợ. Mỗi route sẽ được liên kết với một controller cụ thể để xử lý
+          các request như GET, POST, PUT, DELETE,... Thư mục này giúp tổ chức mã
+          nguồn theo từng chức năng rõ ràng và dễ bảo trì.
+        </BlockquoteTypo>
+        <BlockquoteTypo>
+          <strong>
+            <code>models/</code>
+          </strong>
+          : Định nghĩa cấu trúc dữ liệu, thường dùng với cơ sở dữ liệu.
+          <br />
+          <strong>
+            <code>middlewares/</code>
+          </strong>
+          : Xử lý các bước trung gian như xác thực, logging,...
+          <br />
+          <strong>
+            <code>config/</code>
+          </strong>
+          : Chứa các file cấu hình như database, biến môi trường,...
+          <br />
+          <strong>
+            <code>utils/</code>
+          </strong>
+          : Các hàm tiện ích dùng chung trong toàn ứng dụng.
+          <br />
+          <strong>
+            <code>app.js / server.js</code>
+          </strong>
+          : Điểm khởi chạy chính của server.
+          <br />
+        </BlockquoteTypo>
+        <br />
+        Cách tổ chức này giúp tách biệt chức năng, giảm phụ thuộc và dễ dàng mở
+        rộng trong tương lai.
       </CardContent>
     </Card>
   );
