@@ -27,7 +27,7 @@ const RequireLibrary = () => {
         </H3Typo>
         <PTypo>
           Express đơn giản là một thư viện giúp
-          <b>khởi tạo và chạy một server Node.js</b> một cách dễ dàng. Nó cung
+          <b> khởi tạo và chạy một server Node.js</b> một cách dễ dàng. Nó cung
           cấp các API đơn giản để xử lý request từ client, response và xây dựng
           các tuyến đường (route) cho ứng dụng web hoặc API, quản lý middleware,
           và trả về <b>response</b> cho client một cách hiệu quả.

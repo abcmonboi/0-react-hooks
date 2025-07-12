@@ -230,7 +230,7 @@ const data = {
     },
     {
       name: "Nodejs",
-      url: "nodejs",
+      url: "/nodejs",
       emoji: "🏡",
       pages: [
         {
