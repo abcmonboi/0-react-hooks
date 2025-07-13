@@ -51,7 +51,20 @@ const DirectoryStructure = () => {
           : là nơi định nghĩa các endpoint (đường dẫn API) mà ứng dụng backend
           hỗ trợ. Mỗi route sẽ được liên kết với một controller cụ thể để xử lý
           các request như GET, POST, PUT, DELETE,... Thư mục này giúp tổ chức mã
-          nguồn theo từng chức năng rõ ràng và dễ bảo trì.
+          nguồn theo từng chức năng rõ ràng và dễ bảo trì. Định nghĩa endpoint
+          và ánh xạ đến controller tương ứng.
+          <br />
+          <b>
+            Controller xử lý logic cho một request cụ thể, nhưng Router là nơi
+            quyết định route nào sẽ được giao cho controller nào.
+          </b>{" "}
+          <br />
+          <br />
+          <b> Nếu bạn gộp hết route vào controller, bạn sẽ:</b>
+          <br />
+          <li>Khó quản lý khi ứng dụng lớn lên (hàng trăm route).</li>
+          <li>Không thể dùng middleware riêng cho từng nhóm route.</li>
+          <li>Vi phạm nguyên lý tách biệt trách nhiệm.</li>
         </BlockquoteTypo>
         <BlockquoteTypo>
           <strong>
