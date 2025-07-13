@@ -251,8 +251,9 @@ const data = {
       ],
     },
     {
-      name: "Travel & Adventure",
+      name: "MVC",
       emoji: "🧳",
+      url: "/mvc",
       pages: [
         {
           name: "Trip Planning & Itineraries",
