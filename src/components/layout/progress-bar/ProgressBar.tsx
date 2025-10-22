@@ -1,20 +1,24 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 
 const ProgressBar = () => {
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const path = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       if (!progressBarRef.current) return;
       const scrollY = window.scrollY;
-
       const scrollableHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
-      const percentScroll = Math.min((scrollY / scrollableHeight) * 100, 100);
+      const percentScroll =
+        scrollableHeight > 0
+          ? Math.min((scrollY / scrollableHeight) * 100, 100)
+          : 0;
       progressBarRef.current.style.width = `${percentScroll}%`;
     };
 
@@ -24,7 +28,7 @@ const ProgressBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [path]);
 
   return (
     <div
