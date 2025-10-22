@@ -165,7 +165,7 @@ const data = {
     {
       name: "Git & Version Control",
       emoji: "🏠",
-      url: "git",
+      url: "/git",
       pages: [
         {
           name: "Daily Journal & Reflection",
@@ -187,7 +187,7 @@ const data = {
     {
       name: "Npm Commands & Scripts",
       emoji: "💼",
-      url: "npm",
+      url: "/npm",
       pages: [
         {
           name: "Career Objectives & Milestones",
@@ -209,7 +209,7 @@ const data = {
     {
       name: "Next",
       emoji: "🎨",
-      url: "next",
+      url: "/next",
       pages: [
         {
           name: "API Reference & Documentation",
@@ -235,7 +235,7 @@ const data = {
       pages: [
         {
           name: "backend",
-          url: "nodejs/backend",
+          url: "/nodejs/backend",
           emoji: "💰",
         },
         {

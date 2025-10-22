@@ -15,7 +15,6 @@ const arr = [
 const Testing = () => {
   const [isOpen, setIsOpen] = useState(false);
   //solve
-  const dataToSend = arr.slice(0, isOpen ? 3 : 2);
   return (
     <Card>
       <CardHeader>
@@ -23,9 +22,9 @@ const Testing = () => {
       </CardHeader>
       <CardContent>
         <Button onClick={() => setIsOpen((prev) => !prev)}>
-          Click to open
+          Click to {isOpen ? "close" : "open"}
         </Button>
-        {arr.slice(0, isOpen ? 3 : 2).map((item, index) => (
+        {arr.slice(0, isOpen ? undefined : 1).map((item, index) => (
           <li key={index}>{JSON.stringify(item)}</li>
         ))}
       </CardContent>
