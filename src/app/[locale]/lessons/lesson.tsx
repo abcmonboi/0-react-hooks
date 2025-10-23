@@ -10,7 +10,6 @@ import {
   MutedTypo,
   PTypo,
 } from "@/components/typography";
-import { CardDescription } from "@/components/ui/card";
 import { ReactNode } from "react";
 
 export type LessonType = {
