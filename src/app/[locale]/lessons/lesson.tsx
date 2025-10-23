@@ -1,20 +1,15 @@
-import {
-  H4Typo,
-  InlineCodeTypo,
-  LargeTypo,
-  ListTypo,
-} from "@/components/typography";
+import { H4Typo, InlineCodeTypo, ListTypo } from "@/components/typography";
 import { CardDescription } from "@/components/ui/card";
 import { ReactNode } from "react";
 
-export type Lesson = {
+export type LessonType = {
   id: number;
   label: string;
   description?: string;
   content: ReactNode;
 };
 
-export const LESSONS: Lesson[] = [
+export const LESSONS: LessonType[] = [
   {
     id: 1,
     label: "ReactJS là gì ?",
@@ -43,33 +38,38 @@ export const LESSONS: Lesson[] = [
     description: "Ứng dụng trang đơn và ứng dụng nhiều trang",
     content: (
       <>
-        <li className="marker:text-red-500">
-          React chỉ là 1 trong những trang đang sử dụng phương pháp 1 trang đơn
-        </li>
-        <li className="marker:text-red-500">
-          Không yêu cầu trang tải lại (đó là Single App Application - Kiến trúc,
-          phương pháp)
-        </li>
-        <li className="marker:text-red-500">
-          Cả 2 phương pháp kiến trúc sẽ thích hợp cho từng hoàn cảnh. Hãy theo ý
-          kiến khách hàng. Nếu cần nhanh chóng ko phát triển thêm sau này hãy
-          chọn MPA
-        </li>
-        <li className="marker:text-red-500">
-          MPA là việc render trang sẽ bên phía sever và sẽ trả về trang HTML
-          hoàn chỉnh. Việc phát triển có thể chỉ cần 1 bộ phận ko cần tách lẻ từ
-          đó suy ra có thể làm việc nhanh chóng. Cũng không cần quá chuyên sâu
-          về JS. Chi phí thấp nhân sự cần ít.Tuy nhiên nếu sau này mở rộng sẽ
-          khó hơn(ví dụ như cần phát triển thêm mobile app hay scale ứng dụng)
-        </li>
-        <li className="marker:text-red-500">
-          SPA chia ra 2 bên phát triển riêng biệt BE và FE.Và việc sử dụng JS là
-          bắt buộc vì dựa theo Client sever side, khi sever trả về thì thực chất
-          trả về 1 HTML rỗng kèm với file JS, thiết bị đầu cuối sẽ chờ file JS
-          được trả về để thực hiện render ra giao diện.(chờ script). Từ đó dẫn
-          đến việc nếu không tối ưu tốt file JS thì lần tải đầu sẽ bị mất thời
-          gian.
-        </li>
+        <H4Typo>Các thông tin: </H4Typo>
+        <ListTypo>
+          <li className="marker:text-red-500">
+            React chỉ là 1 trong những framework đang sử dụng phương pháp 1
+            trang đơn
+          </li>
+          <li className="marker:text-red-500">
+            Không yêu cầu trang tải lại (đó là Single App Application - Kiến
+            trúc, phương pháp)
+          </li>
+          <li className="marker:text-red-500">
+            Cả 2 phương pháp kiến trúc sẽ thích hợp cho từng hoàn cảnh. Hãy theo
+            ý kiến khách hàng. Nếu cần nhanh chóng ko phát triển thêm sau này
+            hãy chọn MPA
+          </li>
+          <li className="marker:text-red-500">
+            MPA là việc render trang sẽ bên phía sever và sẽ trả về trang HTML
+            hoàn chỉnh. Việc phát triển có thể chỉ cần 1 bộ phận ko cần tách lẻ
+            từ đó suy ra có thể làm việc nhanh chóng. Cũng không cần quá chuyên
+            sâu về JS. Chi phí thấp nhân sự cần ít.Tuy nhiên nếu sau này mở rộng
+            sẽ khó hơn(ví dụ như cần phát triển thêm mobile app hay scale ứng
+            dụng)
+          </li>
+          <li className="marker:text-red-500">
+            SPA chia ra 2 bên phát triển riêng biệt BE và FE.Và việc sử dụng JS
+            là bắt buộc vì dựa theo Client sever side, khi sever trả về thì thực
+            chất trả về 1 HTML rỗng kèm với file JS, thiết bị đầu cuối sẽ chờ
+            file JS được trả về để thực hiện render ra giao diện.(chờ script).
+            Từ đó dẫn đến việc nếu không tối ưu tốt file JS thì lần tải đầu sẽ
+            bị mất thời gian.
+          </li>
+        </ListTypo>
       </>
     ),
   },

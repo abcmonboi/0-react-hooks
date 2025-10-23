@@ -8,7 +8,7 @@ const List = ({
   return (
     <ul
       {...props}
-      className={cn("my-6 ml-6 list-disc [&>li]:mt-2", props.className)}
+      className={cn("ml-6 list-disc [&>li]:mt-2", props.className)}
     >
       {children}
     </ul>

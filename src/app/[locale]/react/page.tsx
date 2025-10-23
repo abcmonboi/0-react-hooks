@@ -4,6 +4,7 @@ import TwoWayBinding from "@/app/[locale]/react/_components/TwoWayBinding";
 import Mount from "@/app/[locale]/react/_components/Mount";
 import Memo from "@/app/[locale]/react/_components/Memo";
 import UnitTest from "@/app/[locale]/react/_components/UnitTest";
+import Promise from "@/app/[locale]/react/_components/Promise";
 
 export default function page() {
   return (
@@ -15,6 +16,7 @@ export default function page() {
       <TabsContent className="flex flex-col gap-6" value="basic">
         <Mount />
         <TwoWayBinding />
+        <Promise />
       </TabsContent>
       <TabsContent className="flex flex-col gap-6" value="advanced">
         <Memo />

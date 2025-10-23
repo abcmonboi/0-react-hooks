@@ -8,6 +8,7 @@ import {
   Calendar,
   CodeXml,
   Command,
+  FileJsonIcon,
   Home,
   IceCreamIcon,
   MessageCircleQuestion,
@@ -75,6 +76,11 @@ const data = {
       url: "/html",
       icon: CodeXml,
       badge: "10",
+    },
+    {
+      title: "JavaScript",
+      url: "/javascript",
+      icon: FileJsonIcon,
     },
     {
       title: "Testing",

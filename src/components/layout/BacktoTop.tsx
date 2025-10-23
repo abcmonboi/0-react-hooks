@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { ArrowUpCircleIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
@@ -18,6 +19,7 @@ const BacktoTop = () => {
       window.removeEventListener("scroll", handleShowButton);
     };
   }, []);
+
   const handleScroll = () => {
     if (typeof window === "undefined") return;
     window.scrollTo({
@@ -26,13 +28,16 @@ const BacktoTop = () => {
     });
   };
 
-  if (!isShow) return null;
-
   return (
     <Button
       onClick={handleScroll}
       size={"icon"}
-      className="fixed bottom-4 right-[16rem] z-50 rounded-full  [&_svg]:size-8 transition-all duration-300 hover:scale-110"
+      className={cn(
+        "fixed bottom-4 right-[16rem] z-50 rounded-full  [&_svg]:size-8 transition-all duration-300 hover:scale-110",
+        {
+          "scale-0": !isShow,
+        }
+      )}
     >
       <ArrowUpCircleIcon />
     </Button>
