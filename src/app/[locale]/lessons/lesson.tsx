@@ -86,10 +86,9 @@ export const LESSONS: LessonType[] = [
   {
     id: 3,
     label: "Arrow function",
-    description: `Hàm mũi tên ()=>{}`,
+    description: `Hàm mũi tên ()=>{}. Sinh ra để viết ngắn gọn hơn.`,
     content: (
       <>
-        <H4Typo>Sinh ra để viết ngắn gọn hơn:</H4Typo>
         <ListTypo>
           <li className="marker:text-red-500">
             Hàm thông thường:
@@ -113,7 +112,7 @@ export const LESSONS: LessonType[] = [
             </pre>
           </BlockquoteTypo>
           <br />
-          <li>{`Nếu muốn return ra 1 object thì bọc bởi dấu ngoặc đơn ()`}</li>
+          <li>{`Nếu muốn return nhanh ra 1 object thì sau => và trước {} là cặp dấu ngoặc đơn ()`}</li>
           <li>
             Nếu tham số chỉ có 1 thì có thể bỏ dấu ngoặc đơn{" "}
             <pre>
