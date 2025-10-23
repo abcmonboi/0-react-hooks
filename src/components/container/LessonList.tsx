@@ -18,7 +18,7 @@ const LessonList = ({
       <Typo.H2Typo>Đầy đủ các bài học về {title}</Typo.H2Typo>
     </CardHeader>
     <CardContent>
-      <Typo.ListTypo className="[&>li:not(:first-child)]:mt-2">
+      <Typo.ListTypo className="[&>li:not(:first-child)]:mt-2 [&>li]:mt-0">
         {lessons.map((item) => (
           <li className="italic hover:text-destructive" key={item.id}>
             <Link href={`/vi/${pathName}/0${item.id}`}>

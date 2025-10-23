@@ -16,12 +16,16 @@ const LessonContent = ({
 }) => (
   <>
     <div className="mb-4 flex justify-between w-full rounded-xl">
-      {lesson?.id > 1 && (
-        <Link href={`/lessons/${+lesson.id - 1}`}>
-          <Button variant={"secondary"}>
+      {lesson?.id > 1 ? (
+        <Link href={`/lessons/${lesson.id - 1}`}>
+          <Button variant="secondary">
             <ArrowLeft />
           </Button>
         </Link>
+      ) : (
+        <Button disabled variant="secondary">
+          <ArrowLeft />
+        </Button>
       )}
       {lesson?.id !== total && (
         <Link href={`/lessons/${+lesson.id + 1}`}>
@@ -33,7 +37,7 @@ const LessonContent = ({
     </div>
 
     <Card className="list-disc" id={`id-${lesson.id}`}>
-      <CardHeader className="pb-4">
+      <CardHeader className="pb-3">
         <H2Typo>{`Lesson ${lesson?.id}: ${lesson?.label}`}</H2Typo>
         {lesson?.description && <LeadTypo> {lesson.description}</LeadTypo>}
       </CardHeader>
