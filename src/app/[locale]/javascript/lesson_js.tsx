@@ -61,10 +61,10 @@ export const LESSONS_JS: LessonType[] = [
               </pre>
             </Typo.BlockquoteTypo>
             <Typo.PTypo>
-              Nếu như block trên thì ta sẽ in ra 1 và sau 1s sẽ in tiếp ra 2. Vì
+              {`  Nếu như block trên thì ta sẽ in ra 1 và sau 1s sẽ in tiếp ra 2. Vì
               việc in ra "1" không phải thao tác bất đồng bộ nên nó sẽ chạy
               trước. Sau đó hàm setTimeout là hàm bất đồng bộ nên sẽ mất thời
-              gian xử lý và chạy sau để in ra "2"
+              gian xử lý và chạy sau để in ra "2"`}
             </Typo.PTypo>
           </li>
           <li className="marker:text-red-500">
@@ -79,12 +79,12 @@ export const LESSONS_JS: LessonType[] = [
               </pre>
             </Typo.BlockquoteTypo>
             <Typo.PTypo>
-              Như block trên sẽ không đạt được yêu cầu ta mong muốn. Vì ta mong
+              {` Như block trên sẽ không đạt được yêu cầu ta mong muốn. Vì ta mong
               muốn in ra "1" và sau đó 1s in ra 2. Tuy nhiên không hoạt động như
               vậy, thao tác nào đồng bộ nào vẫn đc chạy trước, thao tác không
               đồng bộ sẽ chạy sau, và phần xử lý sau khi hàm bất đồng bộ chạy
               xong thì đang không có gì. Thao tác in ra 1 và 2 trong block này
-              là thao tác đồng bộ.
+              là thao tác đồng bộ.`}
             </Typo.PTypo>
           </li>
         </Typo.ListTypo>
@@ -174,7 +174,7 @@ getUser((user) => {
           <br />
         </Typo.ListTypo>
 
-        <Typo.H4Typo>"Promise" ra đời để giải quyết: </Typo.H4Typo>
+        <Typo.H4Typo>{`"Promise" ra đời để giải quyết:`} </Typo.H4Typo>
         <Typo.PTypo>
           Promise cho phép xâu chuỗi tác vụ bất đồng bộ một cách tuyến tính và
           dễ đọc hơn. Nó là giải pháp cho vấn đề Callback hell giúp viết code
