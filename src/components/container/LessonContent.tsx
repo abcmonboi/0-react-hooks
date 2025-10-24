@@ -12,9 +12,11 @@ import { useRouter } from "next/navigation";
 const LessonContent = ({
   lesson,
   total,
+  pathName,
 }: {
   lesson: LessonType;
   total: number;
+  pathName: string;
 }) => {
   const router = useRouter();
 
@@ -31,7 +33,7 @@ const LessonContent = ({
         </Button>
 
         {lesson?.id !== total && (
-          <Link href={`/lessons/${+lesson.id + 1}`}>
+          <Link href={`/${pathName}/${+lesson.id + 1}`}>
             <Button variant={"secondary"}>
               <ArrowRight />
             </Button>

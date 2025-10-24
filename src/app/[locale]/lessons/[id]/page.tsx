@@ -9,7 +9,13 @@ const page = ({ params: { id } }: { params: { id: string } }) => {
   if (!lesson) {
     return null;
   }
-  return <LessonContent lesson={lesson} total={LESSONS.length ?? 0} />;
+  return (
+    <LessonContent
+      pathName="lessons"
+      lesson={lesson}
+      total={LESSONS.length ?? 0}
+    />
+  );
 };
 
 export default page;
