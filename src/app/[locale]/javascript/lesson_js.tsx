@@ -40,7 +40,7 @@ export const LESSONS_JS: LessonType[] = [
     id: 2,
     label: "Callback với các thao tác async - bất đồng bộ ?",
     description:
-      "Gọi lại phần xử lý sau khi các thao tác bất đồng bộ chạy xong.(đảm bảo chạy sau khi tác vụ async hoàn tất).",
+      "Gọi lại phần xử lý sau khi các thao tác bất đồng bộ chạy xong.(đảm bảo chạy sau khi tác vụ async hoàn tất).Nếu không có phần callback này thì ta không viết được phần code sau khi bất đồng bộ chạy xong.",
     content: (
       <>
         <Typo.H4Typo>Mục đích sinh ra: </Typo.H4Typo>
@@ -94,8 +94,7 @@ export const LESSONS_JS: LessonType[] = [
   {
     id: 3,
     label: "Promise ?",
-    description:
-      "Mục đích sinh ra, liên quan gì đến phần xử lý thao tác bất đồng bộ bằng callBack.",
+    description: `Mục đích sinh ra, liên quan đến phần xử lý thao tác bất đồng bộ bằng callBack. Nỗi đau khi sử dụng callBack( callback hell hoặc "pyramid of doom").`,
     content: (
       <>
         <Typo.H4Typo>Vấn đề gặp phải, nguyên nhân sinh ra: </Typo.H4Typo>
