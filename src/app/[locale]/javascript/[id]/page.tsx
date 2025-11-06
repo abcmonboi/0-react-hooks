@@ -1,8 +1,8 @@
 import { LESSONS_JS } from "@/app/[locale]/javascript/lesson_js";
 import LessonContent from "@/components/container/LessonContent";
-import React from "react";
 
-const page = ({ params: { id } }: { params: { id: string } }) => {
+const page = async ({ params }: { params: { id: string } }) => {
+  const { id } = await params;
   const lesson = LESSONS_JS.find((item) => {
     return item.id === +id;
   });

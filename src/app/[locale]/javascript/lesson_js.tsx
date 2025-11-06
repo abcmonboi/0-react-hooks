@@ -119,19 +119,17 @@ export const LESSONS_JS: LessonType[] = [
 });`}
               </pre>
             </Typo.BlockquoteTypo>
-            <Typo.PTypo>
-              Một điều dễ nhận thấy từ ví dụ trên là:
-              <Typo.ListTypo>
-                <li>Code rất sau và rối</li>
-                <li>Khó đọc, khó bảo trì</li>
-                <li>
-                  Khó xử lý lỗi, vì ta cần try/catch để bắt lỗi nên lại từng
-                  tầng sẽ gọi thủ công
-                </li>
-              </Typo.ListTypo>
-              <br />
-              <b>{`=> Đây gọi là callback hell hoặc “pyramid of doom”`}.</b>
-            </Typo.PTypo>
+            <Typo.PTypo>Một điều dễ nhận thấy từ ví dụ trên là:</Typo.PTypo>
+            <Typo.ListTypo>
+              <li>Code rất sau và rối</li>
+              <li>Khó đọc, khó bảo trì</li>
+              <li>
+                Khó xử lý lỗi, vì ta cần try/catch để bắt lỗi nên lại từng tầng
+                sẽ gọi thủ công
+              </li>
+            </Typo.ListTypo>
+            <br />
+            <b>{`=> Đây gọi là callback hell hoặc “pyramid of doom”`}.</b>
           </li>
           <li className="list-none">
             <Typo.PTypo>Demo chi tiết</Typo.PTypo>
@@ -194,20 +192,18 @@ getUser((user) => {
 `}
               </pre>
             </Typo.BlockquoteTypo>
-            <Typo.PTypo>
-              Một điều dễ nhận thấy từ ví dụ trên là:
-              <Typo.ListTypo>
-                <li>Code phẳng, không bị lồng nhau</li>
-                <li>Dễ đọc, dễ bảo trì,debug</li>
-                <li>Xử lý lỗi tập trung qua .catch()</li>
-              </Typo.ListTypo>
-              <br />
-              <b>
-                {" "}
-                Về sau, async/await được xây trên Promise, giúp code bất đồng bộ
-                nhìn gần như đồng bộ.
-              </b>
-            </Typo.PTypo>
+            <Typo.PTypo>Một điều dễ nhận thấy từ ví dụ trên là:</Typo.PTypo>
+            <Typo.ListTypo>
+              <li>Code phẳng, không bị lồng nhau</li>
+              <li>Dễ đọc, dễ bảo trì,debug</li>
+              <li>Xử lý lỗi tập trung qua .catch()</li>
+            </Typo.ListTypo>
+            <br />
+            <b>
+              {" "}
+              Về sau, async/await được xây trên Promise, giúp code bất đồng bộ
+              nhìn gần như đồng bộ.
+            </b>
           </li>
           <li className="list-none">
             <Typo.PTypo>Demo chi tiết</Typo.PTypo>
@@ -250,6 +246,62 @@ getUser()
               </pre>
             </Typo.BlockquoteTypo>
           </li>
+        </Typo.ListTypo>
+      </>
+    ),
+  },
+  {
+    id: 4,
+    label: "Các loại hàm ( function )",
+    description: `JS Basic`,
+    content: (
+      <>
+        <Typo.H4Typo>Các loại hàm có sẵn trong JS</Typo.H4Typo>
+        <Typo.ListTypo className="list-decimal">
+          <li>
+            Declaration function :
+            <Typo.BlockquoteTypo>
+              <pre>
+                {`function getUser() {
+  console.log("user")
+};`}
+              </pre>
+            </Typo.BlockquoteTypo>
+            <Typo.PTypo className="font-bold italic text-red-500">
+              Đi kèm từ khóa function đầu tiên, bắt buộc đặt tên cho function.
+              Hoisting ( có thể gọi hàm này trước khi nó định nghĩa ).
+            </Typo.PTypo>
+          </li>
+          <li>
+            Expression function
+            <Typo.BlockquoteTypo>
+              <pre>
+                {`var getUser = function(user) {
+  return user;
+};`}
+              </pre>
+            </Typo.BlockquoteTypo>
+            <Typo.BlockquoteTypo>
+              <pre>
+                {`setTimeout(function(){
+});`}
+              </pre>
+            </Typo.BlockquoteTypo>
+            <Typo.BlockquoteTypo>
+              <pre>
+                {`var myObject = {
+  myFunction: function() {
+    }
+};`}
+              </pre>
+            </Typo.BlockquoteTypo>
+            <Typo.PTypo className="font-bold italic text-red-500">
+              Được gán cho 1 biến. Có thể đặt tên hoặc không. Chỉ có mục đích
+              giải thích dễ hiểu cho một số trường hợp. Không có hoisting (
+              không thể gọi hàm này trước khi nó định nghĩa).
+            </Typo.PTypo>
+          </li>
+          <li>Arrow function</li>
         </Typo.ListTypo>
       </>
     ),

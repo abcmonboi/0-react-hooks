@@ -230,13 +230,14 @@ export const LESSONS: LessonType[] = [
           <b>Bài tập convert Array sang object sử dụng hàm reducer</b>{" "}
           <p>
             Cho một mảng với với các phần tử là 1 mảng gồm 2 phần tử chứa key và
-            value.
+            value. Dùng hàm reduce để chuyển mảng này thành 1 object.
+          </p>
+          <BlockquoteTypo>
             <pre>
               VD arr =
               [[&quot;key1&quot;,&quot;value1&quot;],[&quot;key2&quot;,&quot;value2&quot;]]
             </pre>
-            Dùng hàm reduce để chuyển mảng này thành 1 object.
-          </p>
+          </BlockquoteTypo>
           <BlockquoteTypo>
             <pre className="font-bold">
               const arrToObj = arr: string|number[][] =&gt;{" "}
