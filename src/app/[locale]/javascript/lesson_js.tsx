@@ -306,4 +306,101 @@ getUser()
       </>
     ),
   },
+  {
+    id: 5,
+    label: "Object constructor",
+    description: `JS Basic - Xây dựng đối tượng`,
+    content: (
+      <>
+        <Typo.H4Typo>
+          Tạo bản thiết kế schema cho 1 đối tượng - Hàm tạo - Object
+          Constructor. Đây chỉ là bản mô tả về đối tượng, thiết kế về đối tượng
+          chứ không phải là 1 đối tượng. Có thể sử dụng declaration function
+          hoặc expression function
+        </Typo.H4Typo>
+        <Typo.BlockquoteTypo>
+          <pre>
+            {`function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+};
+
+var User = function(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+};
+`}
+          </pre>
+        </Typo.BlockquoteTypo>
+
+        <Typo.H4Typo>
+          Tạo đối tượng từ bản thiết kế schema. Dùng từ khóa new với hàm tạo -
+          object constructor thì mới là tạo đối tượng từ hàm tạo, bản thiết kế,
+          schema.
+        </Typo.H4Typo>
+        <Typo.BlockquoteTypo>
+          <pre>{`var author = new User('Bac','Le','Avatar');
+var user = new User('Le','ke','Avatar');`}</pre>
+        </Typo.BlockquoteTypo>
+        <Typo.ListTypo className="marker:text-red-500">
+          <li>
+            Khi 1 đối tượng được tạo ra từ object constructor thì đối tượng được
+            tạo ra sẽ có 1 phương thức là constructor.
+          </li>
+          <li>
+            Để xem đối tượng được tạo ra từ đâu thì bạn có thể gọi tới thuộc
+            tính object.constructor. So sánh với constructor của nó sẽ === true.
+            Các đối tượng được tạo sẽ là 1 đối tượng riêng nên sẽ có thể tùy
+            chỉnh cho từng đối tượng như thêm thuộc tính cho đối tượng, phương
+            thức mà không ảnh hưởng gì tới nhau. this sẽ là từ từng đối tượng
+            được gọi.
+          </li>
+        </Typo.ListTypo>
+      </>
+    ),
+  },
+  {
+    id: 6,
+    label: "Object prototype",
+    description: `JS Basic - Prototype - nguyên mẫu là gì ? Khi nào sử dụng ?`,
+    content: (
+      <>
+        <Typo.H4Typo>
+          Prototype ở đây là khuôn, nguyên mẫu, bản gốc để tạo ra 1 đối tượng.
+          Đây là các nguyên liệu để tạo, cấu thành lên bản thiết kế.
+        </Typo.H4Typo>
+        <Typo.BlockquoteTypo>
+          <pre>
+            {`function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+};
+
+var User = function(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+};
+`}
+          </pre>
+        </Typo.BlockquoteTypo>
+
+        <Typo.H4Typo>
+          Khi sử dụng prototype thì có thể thêm 1 thuộc tính vào constructor hàm
+          tạo object mà ko cần phải define bên trong hàm tạo. Khác một chút là
+          khi bạn thêm bằng prototype thì nó sẽ nằm ở _proto_. Thêm thuộc tính
+          bằng phương thức mới lấy được this, còn thuộc tính không phải phương
+          thức thì không có this.
+        </Typo.H4Typo>
+        <Typo.BlockquoteTypo>
+          <pre>{`User.prototype.getName = function(){
+    return this.firstName
+};`}</pre>
+        </Typo.BlockquoteTypo>
+      </>
+    ),
+  },
 ];
