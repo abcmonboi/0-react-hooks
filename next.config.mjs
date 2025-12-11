@@ -22,9 +22,6 @@ const nextConfig = {
       },
     ];
   },
-  turbopack: {
-    root: "E:/Programing Road/0_React/hooks",
-  },
   // Add any other Next.js configuration options here
 };
 
